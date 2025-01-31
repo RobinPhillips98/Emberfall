@@ -1,5 +1,5 @@
 extends InvItem
 
-class_name armor
+class_name Armor
 
 @export var defense: float
