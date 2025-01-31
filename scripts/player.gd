@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
 signal health_depleted
-const LEVEL_UP_VALUE : int = 1000
-const MAX_LEVEL: int = 4
-#const MAX_STAMINA : float = 50.0
+
+# Attributes
 var max_health: float = 100.0
 var max_mana: float = 100.0
 var max_stamina: float = 50.0
@@ -11,10 +10,18 @@ var health : float = max_health
 var mana: float = max_mana
 var stamina: float = 0
 var stamina_regen_rate: float = 10
+
+#Equipment
 var armor : float # Should be between 0.0 and 1.0
+var money: int = 0
+@export var inv: Inv
+
+#Experience and Level
+const LEVEL_UP_VALUE : int = 1000
+const MAX_LEVEL: int = 4
 var xp: int = 0
 var level: int = 1
-var money: int = 0
+
 
 func _physics_process(delta):
 	%HealthBar.value = health
@@ -33,13 +40,13 @@ func _physics_process(delta):
 	else:
 		%HappyBoo.play_idle_animation()
 
-	const DAMAGE_RATE = 5.0
-	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
-	if overlapping_mobs.size() > 0:
-		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
-		if health <= 0.0:
-			health_depleted.emit()
-			
+	#const DAMAGE_RATE = 5.0
+	#var overlapping_mobs = %HurtBox.get_overlapping_bodies()
+	#if overlapping_mobs.size() > 0:
+		#health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		#if health <= 0.0:
+			#health_depleted.emit()
+
 	if Input.is_action_just_pressed("melee_attack"):
 		level_up()
 
