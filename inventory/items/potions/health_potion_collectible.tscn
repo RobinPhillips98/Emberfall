@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://inventory/items/potions/health_potion_collectible.gd" id="1_1l3d5"]
 [ext_resource type="Resource" uid="uid://0ix82cnc5k8g" path="res://inventory/items/potions/health_potion.tres" id="2_4hjty"]
-[ext_resource type="Texture2D" uid="uid://c8bxkeoya4sjd" path="res://inventory/items/potions/placeholder_health_potion.png" id="2_lufsw"]
+[ext_resource type="Texture2D" uid="uid://c8bxkeoya4sjd" path="res://art/equipment/placeholder_health_potion.png" id="2_lufsw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8koj"]
 radius = 5.0

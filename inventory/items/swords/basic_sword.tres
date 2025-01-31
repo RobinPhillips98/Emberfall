@@ -7,4 +7,5 @@
 script = ExtResource("1_7vulp")
 damage = 10.0
 name = "Basic Sword"
+type = "sword"
 texture = ExtResource("2_r51ir")

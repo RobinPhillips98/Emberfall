@@ -8,4 +8,5 @@ script = ExtResource("1_5op0w")
 damage = 10.0
 range = 1000
 name = "Basic Bow"
+type = "bow"
 texture = ExtResource("2_oigcy")
