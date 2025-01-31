@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inv" load_steps=5 format=3 uid="uid://dcej5n88c5di3"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_wvtn7"]
+[ext_resource type="Resource" uid="uid://cdq5yc0ildh3r" path="res://inventory/items/swords/basic_sword.tres" id="2_d7njj"]
+[ext_resource type="Resource" uid="uid://cb233v5b64yyb" path="res://inventory/items/bows/basic_bow.tres" id="3_4psmq"]
+[ext_resource type="Script" path="res://inventory/inventory.gd" id="3_6l6ec"]
+
+[resource]
+script = ExtResource("3_6l6ec")
+items = Array[ExtResource("1_wvtn7")]([ExtResource("2_d7njj"), null, ExtResource("3_4psmq"), null, null])
