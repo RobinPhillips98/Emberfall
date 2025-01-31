@@ -9,6 +9,7 @@ func spawn_mob():
 
 
 func _on_timer_timeout():
+	#pass
 	spawn_mob()
 
 

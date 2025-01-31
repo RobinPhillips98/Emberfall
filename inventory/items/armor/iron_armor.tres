@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="armor" load_steps=3 format=3 uid="uid://6ak2d5f2ei7p"]
+
+[ext_resource type="Script" path="res://inventory/items/armor/armor.gd" id="1_d3wft"]
+[ext_resource type="Texture2D" uid="uid://dpktp0ipwqsxu" path="res://art/equipment/placeholder_armor_icon.png" id="2_5rghl"]
+
+[resource]
+script = ExtResource("1_d3wft")
+defense = 0.05
+name = "Iron Armor"
+type = "armor"
+texture = ExtResource("2_5rghl")
