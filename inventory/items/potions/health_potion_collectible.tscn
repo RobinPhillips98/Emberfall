@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://e78ftuyn1u7l"]
+
+[ext_resource type="Script" path="res://inventory/items/potions/health_potion_collectible.gd" id="1_1l3d5"]
+[ext_resource type="Resource" uid="uid://0ix82cnc5k8g" path="res://inventory/items/potions/health_potion.tres" id="2_4hjty"]
+[ext_resource type="Texture2D" uid="uid://c8bxkeoya4sjd" path="res://art/equipment/placeholder_health_potion.png" id="2_lufsw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8koj"]
+radius = 5.0
+height = 14.0
+
+[node name="health_potion_collectible" type="StaticBody2D"]
+script = ExtResource("1_1l3d5")
+item = ExtResource("2_4hjty")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lufsw")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CapsuleShape2D_p8koj")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

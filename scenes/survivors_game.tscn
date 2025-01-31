@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0tx21fbanvl5"]
+[gd_scene load_steps=6 format=3 uid="uid://b0tx21fbanvl5"]
 
 [ext_resource type="PackedScene" uid="uid://cyspwdctflykh" path="res://scenes/player.tscn" id="1_i7wap"]
 [ext_resource type="Script" path="res://scripts/survivors_game.gd" id="1_wbtww"]
 [ext_resource type="PackedScene" uid="uid://11rpmqf67lxd" path="res://scenes/pine_tree.tscn" id="2_lljse"]
+[ext_resource type="PackedScene" uid="uid://e78ftuyn1u7l" path="res://inventory/items/potions/health_potion_collectible.tscn" id="4_mpemo"]
 
 [sub_resource type="Curve2D" id="Curve2D_hjwbj"]
 _data = {
@@ -89,6 +90,15 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.798643, 0, 0.0756476, 1)
 theme_override_font_sizes/font_size = 200
 text = "YOU DIED"
+
+[node name="health_potion_collectible" parent="." instance=ExtResource("4_mpemo")]
+position = Vector2(805, 591)
+
+[node name="health_potion_collectible2" parent="." instance=ExtResource("4_mpemo")]
+position = Vector2(862, 593)
+
+[node name="health_potion_collectible3" parent="." instance=ExtResource("4_mpemo")]
+position = Vector2(835, 553)
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
