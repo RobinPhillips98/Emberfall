@@ -3,15 +3,20 @@ extends CharacterBody2D
 signal health_depleted
 @onready var animation_tree: AnimationTree = $AnimationTree
 
-
-# Attributes
+#Base numbers
+const LEVEL_UP_VALUE : int = 1000
+const BASE_SPEED = 600
 var max_health: float = 100.0
 var max_mana: float = 100.0
 var max_stamina: float = 50.0
+
+# Attributes
 var health : float = max_health
 var mana: float = max_mana
 var stamina: float = 0
 var stamina_regen_rate: float = 10
+var speed = BASE_SPEED
+
 
 #Equipment
 var defense : float # Should be between 0.0 and 1.0
@@ -22,7 +27,6 @@ var money: int = 0
 @onready var bow = inv.slots[2].item
 
 #Experience and Level
-const LEVEL_UP_VALUE : int = 1000
 const MAX_LEVEL: int = 4
 var xp: int = 0
 var level: int = 1
@@ -59,7 +63,7 @@ func _physics_process(delta):
 	elif direction.x < 0:
 		%Eldran.flip_h = true
 	
-	velocity = direction * 600
+	velocity = direction * speed
 	move_and_slide()
 
 	#if velocity.length() > 0:

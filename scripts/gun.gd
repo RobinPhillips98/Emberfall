@@ -13,8 +13,8 @@ func _physics_process(delta):
 		#look_at(target_enemy.global_position)
 
 func shoot():
-	const BULLET = preload("res://scenes/bullet.tscn")
-	var new_bullet = BULLET.instantiate()
-	new_bullet.global_position = %ShootingPoint.global_position
-	new_bullet.global_rotation = %ShootingPoint.global_rotation
-	%ShootingPoint.add_child(new_bullet)
+	const ARROW = preload("res://scenes/arrow.tscn")
+	var new_arrow = ARROW.instantiate()
+	new_arrow.global_position = %ShootingPoint.global_position
+	new_arrow.global_rotation = %ShootingPoint.global_rotation
+	%ShootingPoint.add_child(new_arrow)
