@@ -109,3 +109,6 @@ func level_up():
 	stamina += 25
 	
 	# TODO: gaining new abilities
+
+func collect(item):
+	inv.insert(item)
