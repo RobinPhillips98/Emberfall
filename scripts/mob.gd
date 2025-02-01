@@ -12,11 +12,11 @@ func _physics_process(delta):
 	velocity = direction * 300
 	move_and_slide()
 
-func take_damage():
-	health -= 1
+func take_damage(value):
+	health -= value
 	%Slime.play_hurt()
 	
-	if health == 0:
+	if health <= 0:
 		queue_free()
 		const SMOKE_SCENE = preload("res://smoke_explosion/smoke_explosion.tscn")
 		var smoke = SMOKE_SCENE.instantiate()
