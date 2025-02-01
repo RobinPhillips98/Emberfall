@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://ot52xq0gc0oi"]
+
+[ext_resource type="Script" path="res://scripts/gun.gd" id="1_cqgr0"]
+[ext_resource type="Texture2D" uid="uid://bv1hq2eysyvx3" path="res://art/equipment/placeholder-bow-weapon.png" id="2_4rqdb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjjds"]
+radius = 416.48
+
+[node name="Bow" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_cqgr0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_vjjds")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+
+[node name="BowSprite" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(48, 0)
+scale = Vector2(0.027027, 0.028885)
+texture = ExtResource("2_4rqdb")
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/BowSprite"]
+unique_name_in_owner = true
+position = Vector2(259, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

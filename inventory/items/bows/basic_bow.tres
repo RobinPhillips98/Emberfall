@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="bow" load_steps=3 format=3 uid="uid://cb233v5b64yyb"]
+[gd_resource type="Resource" script_class="Bow" load_steps=3 format=3 uid="uid://cb233v5b64yyb"]
 
 [ext_resource type="Script" path="res://inventory/items/bows/bow.gd" id="1_5op0w"]
 [ext_resource type="Texture2D" uid="uid://hr3vqxt8qekr" path="res://art/equipment/placeholder_bow.png" id="2_oigcy"]
 
 [resource]
 script = ExtResource("1_5op0w")
-damage = 10.0
+damage = 5.0
 range = 1000
 name = "Basic Bow"
 type = "bow"
