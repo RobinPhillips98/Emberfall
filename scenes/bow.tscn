@@ -12,7 +12,6 @@ collision_mask = 2
 script = ExtResource("1_cqgr0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_vjjds")
 
 [node name="WeaponPivot" type="Marker2D" parent="."]

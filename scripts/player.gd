@@ -49,10 +49,14 @@ func _process(delta):
 	if Input.is_action_just_pressed('hotkey_2') and inv.slots[4].amount > 0:
 		drink_potion("mana_potion")
 	
-	update_animation_parameters()
+	#Animations
+	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
+	animation_tree.set("parameters/conditions/is_moving", velocity != Vector2.ZERO)
 
-	#if Input.is_action_just_pressed("melee_attack"):
-		#animation_player.play("attack")
+	if Input.is_action_just_pressed("melee_attack"):
+		animation_tree["parameters/conditions/attack"] = true
+	else:
+		animation_tree["parameters/conditions/attack"] = false
 
 func _physics_process(delta):
 	
@@ -66,17 +70,12 @@ func _physics_process(delta):
 	velocity = direction * speed
 	move_and_slide()
 
-	#if velocity.length() > 0:
-		#animation_player.play("walk")
-	#else:
-		#animation_player.play("idle")
-
-	const DAMAGE_RATE = 5.0
-	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
-	if overlapping_mobs.size() > 0:
-		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
-		if health <= 0.0:
-			health_depleted.emit()
+	#const DAMAGE_RATE = 5.0
+	#var overlapping_mobs = %HurtBox.get_overlapping_bodies()
+	#if overlapping_mobs.size() > 0:
+		#health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+	if health <= 0.0:
+		health_depleted.emit()
 
 func drink_potion(type):
 	match type:
@@ -96,39 +95,37 @@ func take_damage(damage):
 	
 	health -= damage
 	
-	
-	
 	if health <= 0.0:
 		health_depleted.emit()
-		
+
 func modify_mana(value):
 	mana += value
 	if mana < 0:
 		mana = 0
 	elif mana > max_mana:
 		mana = max_mana
-	
+
 func get_mana():
 	return mana
 
 func set_defense(value):
 	defense = value
-	
+
 func gain_xp(value):
 	xp += value
 	if xp >= LEVEL_UP_VALUE:
 		level_up()
-	
+
 func gain_money(value):
 	money += value
-	
+
 func get_money():
 	return money
 
 func level_up():
 	if level >= MAX_LEVEL:
 		return
-		
+	
 	gain_xp(LEVEL_UP_VALUE * -1)
 	level += 1
 	
@@ -151,23 +148,6 @@ func level_up():
 func collect(item):
 	inv.insert(item)
 
-func update_animation_parameters():
-	#if velocity == Vector2.ZERO:
-		#animation_tree["parameters/conditions/idle"] = true
-		#animation_tree["parameters/conditions/is_moving"] = false
-	#else:
-		#animation_tree["parameters/conditions/idle"] = false
-		#animation_tree["parameters/conditions/is_moving"] = true
-		
-	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
-	animation_tree.set("parameters/conditions/is_moving", velocity != Vector2.ZERO)
-
-	if Input.is_action_just_pressed("melee_attack"):
-		animation_tree["parameters/conditions/attack"] = true
-	else:
-		animation_tree["parameters/conditions/attack"] = false
-
-
 func _on_sword_body_entered(body):
 	if body.has_method("take_damage"):
-			body.take_damage(sword.damage)
+			body.take_damage(1)
