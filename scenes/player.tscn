@@ -218,7 +218,7 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-205, -54)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1j46o"]
-radius = 36.0139
+radius = 31.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44b70"]
 radius = 45.2769
@@ -264,7 +264,7 @@ parameters/conditions/idle = false
 parameters/conditions/is_moving = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -40)
+position = Vector2(0, -38)
 shape = SubResource("CircleShape2D_1j46o")
 
 [node name="Gun" parent="." instance=ExtResource("3_ulrlk")]
