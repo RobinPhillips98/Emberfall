@@ -5,19 +5,24 @@
 [ext_resource type="Texture2D" uid="uid://c8bxkeoya4sjd" path="res://art/equipment/placeholder_health_potion.png" id="2_lufsw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8koj"]
-radius = 5.0
-height = 14.0
+radius = 2.5
+height = 7.25
 
 [node name="health_potion_collectible" type="StaticBody2D"]
+position = Vector2(0, -15)
+scale = Vector2(1.25, 1.25)
 script = ExtResource("1_1l3d5")
 item = ExtResource("2_4hjty")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("2_lufsw")
 
 [node name="interactable_area" type="Area2D" parent="."]
+scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_p8koj")
 
 [connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

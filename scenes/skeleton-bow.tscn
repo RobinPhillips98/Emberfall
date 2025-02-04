@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2mfgig6d02n6"]
+
+[ext_resource type="Script" path="res://scripts/skeleton-bow.gd" id="1_2yj6r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjjds"]
+radius = 416.48
+
+[node name="Bow" type="Area2D"]
+scale = Vector2(0.158065, 0.119497)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_2yj6r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vjjds")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(253.061, 0)
+scale = Vector2(0.027027, 0.028885)

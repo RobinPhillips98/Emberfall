@@ -9,8 +9,8 @@ func spawn_mob():
 
 
 func _on_timer_timeout():
-	#pass
-	spawn_mob()
+	pass
+	#spawn_mob()
 
 
 func _on_player_health_depleted() -> void:
