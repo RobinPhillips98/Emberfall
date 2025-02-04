@@ -150,4 +150,4 @@ func collect(item):
 
 func _on_sword_body_entered(body):
 	if body.has_method("take_damage"):
-			body.take_damage(1)
+			body.take_damage(10)

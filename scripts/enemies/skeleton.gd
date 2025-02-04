@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const BASE_SPEED = 300
+const BASE_SPEED = 200
 const AGGRO_RANGE = 500
 const EVADE_RANGE = 250
 const ATTACK_RANGE = EVADE_RANGE + 100
