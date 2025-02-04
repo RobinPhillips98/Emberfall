@@ -244,7 +244,7 @@ inv = ExtResource("2_m6gl8")
 
 [node name="Eldran" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(6, -52.6254)
+position = Vector2(6, -23.6254)
 scale = Vector2(3.67182, 3.46091)
 texture = ExtResource("3_cycrn")
 hframes = 13
@@ -264,15 +264,15 @@ parameters/conditions/idle = false
 parameters/conditions/is_moving = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -38)
+position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_1j46o")
 
 [node name="Gun" parent="." instance=ExtResource("3_ulrlk")]
-position = Vector2(0, -36)
+position = Vector2(0, -7)
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -3)
+position = Vector2(0, 26)
 scale = Vector2(0.57434, 0.820701)
 collision_layer = 0
 collision_mask = 2
@@ -285,9 +285,9 @@ debug_color = Color(0.882208, 0.304611, 0.375487, 0.42)
 [node name="HealthBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 offset_left = -960.0
-offset_top = -540.0
+offset_top = -511.0
 offset_right = -731.0
-offset_bottom = -513.0
+offset_bottom = -484.0
 theme_override_styles/background = SubResource("StyleBoxFlat_4symm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_h4lf4")
 value = 100.0
@@ -296,9 +296,9 @@ show_percentage = false
 [node name="StaminaBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 offset_left = -960.0
-offset_top = -513.0
+offset_top = -484.0
 offset_right = -731.0
-offset_bottom = -486.0
+offset_bottom = -457.0
 theme_override_styles/background = SubResource("StyleBoxFlat_4symm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_abq2t")
 max_value = 50.0
@@ -318,6 +318,7 @@ max_value = 0.0
 show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 29)
 
 [node name="Inv_UI" parent="." instance=ExtResource("3_3bd7g")]
 visible = false
@@ -328,6 +329,7 @@ offset_bottom = -79.0
 
 [node name="Sword" type="Area2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, 29)
 collision_mask = 2
 
 [node name="AttackCollision" type="CollisionShape2D" parent="Sword"]
