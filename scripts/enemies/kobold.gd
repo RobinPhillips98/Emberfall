@@ -3,26 +3,28 @@ extends CharacterBody2D
 const BASE_SPEED = 300
 const AGGRO_RANGE = 250
 const ATTACK_RANGE = 60
-var health = 3
+var health = 30
 @onready var speed = BASE_SPEED
 @onready var player = get_node("/root/Game/Player")
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var direction = global_position.direction_to(player.global_position)
 
-func _ready():
-	pass
-	#%Slime.play_walk()
-	
 func _process(delta):
 	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
 	animation_tree.set("parameters/conditions/is_moving", velocity != Vector2.ZERO)
 
 func _physics_process(delta):
+	direction = global_position.direction_to(player.global_position)
 	if global_position.distance_to(player.global_position) < AGGRO_RANGE and global_position.distance_to(player.global_position) > ATTACK_RANGE:
-		var direction = global_position.direction_to(player.global_position)
 		velocity = direction * speed
 		move_and_slide()
 	else:
 		velocity = Vector2.ZERO
+		
+	if direction.x > 0:
+		$Sprite2D.flip_h = false
+	elif direction.x < 0:
+		$Sprite2D.flip_h = true
 	
 	if global_position.distance_to(player.global_position) < ATTACK_RANGE and randf() < 0.5 * delta:
 		attack()

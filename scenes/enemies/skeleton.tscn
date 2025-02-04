@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://d1dw46vj4kwcc"]
+[gd_scene load_steps=36 format=3 uid="uid://d1dw46vj4kwcc"]
 
 [ext_resource type="Texture2D" uid="uid://bdbdd4fwog0b6" path="res://art/enemies/placeholder-skeleton-sprite-sheet.png" id="1_4myfc"]
 [ext_resource type="Script" path="res://scripts/enemies/skeleton.gd" id="1_qy3cl"]
+[ext_resource type="PackedScene" uid="uid://c2mfgig6d02n6" path="res://scenes/skeleton-bow.tscn" id="3_y344s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4cev"]
 size = Vector2(18, 18)
@@ -263,3 +264,6 @@ position = Vector2(-4.23516e-22, -7.92006)
 scale = Vector2(1, 0.999999)
 shape = SubResource("RectangleShape2D_2jvcu")
 debug_color = Color(0.882208, 0.304611, 0.375487, 0.42)
+
+[node name="Bow" parent="." instance=ExtResource("3_y344s")]
+position = Vector2(0.330761, -7.18225)

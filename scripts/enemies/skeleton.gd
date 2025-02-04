@@ -4,7 +4,7 @@ const BASE_SPEED = 300
 const AGGRO_RANGE = 500
 const EVADE_RANGE = 250
 const ATTACK_RANGE = EVADE_RANGE + 100
-var health = 3
+var health = 30
 @onready var speed = BASE_SPEED
 @onready var player = get_node("/root/Game/Player")
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -13,6 +13,9 @@ var health = 3
 func _process(delta):
 	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
 	animation_tree.set("parameters/conditions/is_moving", velocity != Vector2.ZERO)
+	
+	if global_position.distance_to(player.global_position) < ATTACK_RANGE and randf() < 0.25 * delta:
+		attack()
 
 func _physics_process(delta):
 	if global_position.distance_to(player.global_position) < EVADE_RANGE:
@@ -47,8 +50,17 @@ func take_damage(value):
 		await get_tree().create_timer(0.6).timeout
 		animation_tree["parameters/conditions/death"] = false
 		
+		await animation_tree["parameters/conditions/death"] == false
 		queue_free()
 		const SMOKE_SCENE = preload("res://smoke_explosion/smoke_explosion.tscn")
 		var smoke = SMOKE_SCENE.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
+
+func attack():
+		animation_tree["parameters/conditions/attack"] = true
+		await get_tree().create_timer(0.3).timeout
+		animation_tree["parameters/conditions/attack"] = false
+		
+		await animation_tree["parameters/conditions/attack"] == false
+		$Bow.shoot()
