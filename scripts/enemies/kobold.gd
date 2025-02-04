@@ -26,7 +26,7 @@ func _physics_process(delta):
 	elif direction.x < 0:
 		$Sprite2D.flip_h = true
 	
-	if global_position.distance_to(player.global_position) < ATTACK_RANGE and randf() < 0.5 * delta:
+	if global_position.distance_to(player.global_position) <= ATTACK_RANGE and randf() < 0.5 * delta:
 		attack()
 
 func take_damage(value):

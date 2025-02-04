@@ -246,7 +246,7 @@ graph_offset = Vector2(-205, -54)
 size = Vector2(34.8226, 23.1509)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpwa3"]
-size = Vector2(7, 1)
+size = Vector2(9.52262, 17.9556)
 
 [node name="Kobold" type="CharacterBody2D"]
 scale = Vector2(3.02333, 3.34157)
@@ -294,7 +294,8 @@ debug_color = Color(0.882208, 0.304611, 0.375487, 0.42)
 [node name="Attack" type="Area2D" parent="."]
 
 [node name="AttackCollision" type="CollisionShape2D" parent="Attack"]
-position = Vector2(12.5, -7.5)
+position = Vector2(13.7613, -8.97782)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fpwa3")
 disabled = true
 debug_color = Color(0.590848, 0.547476, 1.92523e-07, 0.42)
