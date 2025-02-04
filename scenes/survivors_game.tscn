@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0tx21fbanvl5"]
+[gd_scene load_steps=9 format=3 uid="uid://b0tx21fbanvl5"]
 
 [ext_resource type="PackedScene" uid="uid://cyspwdctflykh" path="res://scenes/player.tscn" id="1_i7wap"]
 [ext_resource type="Script" path="res://scripts/survivors_game.gd" id="1_wbtww"]
 [ext_resource type="PackedScene" uid="uid://11rpmqf67lxd" path="res://scenes/pine_tree.tscn" id="2_lljse"]
 [ext_resource type="PackedScene" uid="uid://e78ftuyn1u7l" path="res://inventory/items/potions/health_potion_collectible.tscn" id="4_mpemo"]
+[ext_resource type="PackedScene" uid="uid://bulg58ab8ik56" path="res://scenes/enemies/kobold.tscn" id="5_ep1aq"]
+[ext_resource type="PackedScene" uid="uid://d1dw46vj4kwcc" path="res://scenes/enemies/skeleton.tscn" id="6_fah6n"]
+[ext_resource type="PackedScene" uid="uid://co20ernxnkqri" path="res://scenes/enemies/mage.tscn" id="7_sv6ev"]
 
 [sub_resource type="Curve2D" id="Curve2D_hjwbj"]
 _data = {
@@ -98,6 +101,15 @@ position = Vector2(862, 593)
 
 [node name="health_potion_collectible3" parent="." instance=ExtResource("4_mpemo")]
 position = Vector2(835, 553)
+
+[node name="Kobold" parent="." instance=ExtResource("5_ep1aq")]
+position = Vector2(1302, 560)
+
+[node name="Skeleton" parent="." instance=ExtResource("6_fah6n")]
+position = Vector2(216, 610)
+
+[node name="Mage" parent="." instance=ExtResource("7_sv6ev")]
+position = Vector2(663, 718)
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

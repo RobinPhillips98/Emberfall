@@ -1,0 +1,227 @@
+[gd_scene load_steps=36 format=3 uid="uid://co20ernxnkqri"]
+
+[ext_resource type="Texture2D" uid="uid://bi0ljys174hsu" path="res://art/enemies/placeholder-mage-sprite-sheet.png" id="1_8gxvv"]
+[ext_resource type="Script" path="res://scripts/enemies/mage.gd" id="1_8sn0f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4cev"]
+size = Vector2(18, 18)
+
+[sub_resource type="Animation" id="Animation_rwxdh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_opfdn"]
+resource_name = "death"
+
+[sub_resource type="Animation" id="Animation_jmqej"]
+resource_name = "attack"
+
+[sub_resource type="Animation" id="Animation_87d3y"]
+resource_name = "hurt"
+
+[sub_resource type="Animation" id="Animation_sxe1a"]
+resource_name = "idle"
+length = 0.7
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_55ydt"]
+resource_name = "walk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1ko3"]
+_data = {
+"RESET": SubResource("Animation_rwxdh"),
+"death": SubResource("Animation_opfdn"),
+"heal": SubResource("Animation_jmqej"),
+"hurt": SubResource("Animation_87d3y"),
+"idle": SubResource("Animation_sxe1a"),
+"walk": SubResource("Animation_55ydt")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xib2d"]
+animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pikfo"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ajtk"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gmd14"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jr1su"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1qhxs"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wvevh"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_11u58"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ndnuj"]
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bq77n"]
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jh42m"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7o0oa"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7mosk"]
+advance_mode = 2
+advance_condition = &"hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_17yo7"]
+advance_mode = 2
+advance_condition = &"hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sr5wr"]
+advance_mode = 2
+advance_condition = &"hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mh8ro"]
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_56v7i"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bfism"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y3p76"]
+advance_mode = 2
+advance_condition = &"death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q1ctf"]
+advance_mode = 2
+advance_condition = &"death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ui33g"]
+advance_mode = 2
+advance_condition = &"death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ckei2"]
+advance_mode = 2
+advance_condition = &"death"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dk1l6"]
+states/End/position = Vector2(1200, 100)
+states/attack/node = SubResource("AnimationNodeAnimation_xib2d")
+states/attack/position = Vector2(444, -1)
+states/death/node = SubResource("AnimationNodeAnimation_pikfo")
+states/death/position = Vector2(1011, 40)
+states/hurt/node = SubResource("AnimationNodeAnimation_2ajtk")
+states/hurt/position = Vector2(706, -1)
+states/idle/node = SubResource("AnimationNodeAnimation_gmd14")
+states/idle/position = Vector2(356, 100)
+states/walk/node = SubResource("AnimationNodeAnimation_jr1su")
+states/walk/position = Vector2(781, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_1qhxs"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_wvevh"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_11u58"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_ndnuj"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_bq77n"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_jh42m"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_7o0oa"), "attack", "hurt", SubResource("AnimationNodeStateMachineTransition_7mosk"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_17yo7"), "walk", "hurt", SubResource("AnimationNodeStateMachineTransition_sr5wr"), "hurt", "attack", SubResource("AnimationNodeStateMachineTransition_mh8ro"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_56v7i"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_bfism"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_y3p76"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_q1ctf"), "hurt", "death", SubResource("AnimationNodeStateMachineTransition_ui33g"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_ckei2")]
+graph_offset = Vector2(-205, -54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jvcu"]
+size = Vector2(34.8226, 23.1509)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_68lk1"]
+radius = 92.2828
+
+[node name="Mage" type="CharacterBody2D"]
+scale = Vector2(3.02333, 3.34157)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_8sn0f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.454227, -6.14528)
+texture = ExtResource("1_8gxvv")
+hframes = 8
+vframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.454227, 0.85472)
+shape = SubResource("RectangleShape2D_m4cev")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v1ko3")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_dk1l6")
+parameters/conditions/attack = false
+parameters/conditions/death = false
+parameters/conditions/hurt = false
+parameters/conditions/idle = false
+parameters/conditions/is_moving = false
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0.454227, 6.86211)
+scale = Vector2(0.57434, 0.820701)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-4.23516e-22, -7.92006)
+scale = Vector2(1, 0.999999)
+shape = SubResource("RectangleShape2D_2jvcu")
+debug_color = Color(0.882208, 0.304611, 0.375487, 0.42)
+
+[node name="HealRadius" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0.454227, 9.85472)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealRadius"]
+position = Vector2(-0.454227, -9.85472)
+shape = SubResource("CircleShape2D_68lk1")
+debug_color = Color(0, 0.64633, 0.239646, 0.42)
+
+[node name="HealTimer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
+[connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]
