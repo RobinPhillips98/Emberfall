@@ -21,10 +21,8 @@ var speed = BASE_SPEED
 #Equipment
 var defense : float # Should be between 0.0 and 1.0
 var money: int = 0
-@export var inv: Inv
-@onready var sword = inv.slots[0].item
-@onready var armor = inv.slots[1].item
-@onready var bow = inv.slots[2].item
+var health_potions: int = 0
+var mana_potions: int = 0
 
 #Experience and Level
 const MAX_LEVEL: int = 4
@@ -32,7 +30,6 @@ var xp: int = 0
 var level: int = 1
 
 func _ready():
-	defense = armor.defense
 	animation_tree.active = true
 
 func _process(delta):
@@ -43,10 +40,10 @@ func _process(delta):
 	if stamina < max_stamina:
 		stamina += stamina_regen_rate * delta
 
-	if Input.is_action_just_pressed('hotkey_1') and inv.slots[3].amount > 0:
+	if Input.is_action_just_pressed('hotkey_1') and health_potions > 0:
 		drink_potion("health_potion")
 
-	if Input.is_action_just_pressed('hotkey_2') and inv.slots[4].amount > 0:
+	if Input.is_action_just_pressed('hotkey_2') and mana_potions > 0:
 		drink_potion("mana_potion")
 	
 	#Animations
@@ -83,12 +80,17 @@ func drink_potion(type):
 			health += max_health * .3
 			if health > max_health:
 				health = max_health
-			inv.remove(3)
+			health_potions -= 1
 		"mana_potion":
 			modify_mana(max_mana * .3)
-			inv.remove(4)
-	
-	
+			mana_potions -= 1
+
+func gain_potion(type):
+	match type:
+		"health_potion":
+			health_potions += 1
+		"mana_potion":
+			mana_potions += 1
 
 func take_damage(damage):
 	damage *= (1 - defense)
@@ -144,9 +146,6 @@ func level_up():
 	stamina += 25
 	
 	# TODO: gaining new abilities
-
-func collect(item):
-	inv.insert(item)
 
 func _on_sword_body_entered(body):
 	if body.has_method("take_damage"):
