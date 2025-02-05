@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://co20ernxnkqri"]
 
-[ext_resource type="Texture2D" uid="uid://bi0ljys174hsu" path="res://art/enemies/placeholder-mage-sprite-sheet.png" id="1_8gxvv"]
+[ext_resource type="Texture2D" uid="uid://daacxp6bo2pv7" path="res://art/enemies/placeholder-mage-sprite-sheet.png" id="1_8gxvv"]
 [ext_resource type="Script" path="res://scripts/enemies/mage.gd" id="1_8sn0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4cev"]
