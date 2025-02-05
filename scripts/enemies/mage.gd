@@ -13,6 +13,7 @@ var health = 30
 func _process(delta):
 	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
 	animation_tree.set("parameters/conditions/is_moving", velocity != Vector2.ZERO)
+	
 
 func _physics_process(delta):
 	if global_position.distance_to(player.global_position) < EVADE_RANGE:
@@ -50,9 +51,27 @@ func take_damage(value):
 		var smoke = SMOKE_SCENE.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
+	
+func get_health():
+	return health
+
+func be_healed(value):
+	health += value
 
 
 func _on_heal_timer_timeout() -> void:
 	var allies_in_range = %HealRadius.get_overlapping_bodies()
 	
+	if allies_in_range.size() > 0:
+		var lowest_health_ally = allies_in_range[0]
+		for i in range(allies_in_range.size()):
+			if allies_in_range[i].get_health() < lowest_health_ally.get_health():
+				lowest_health_ally = allies_in_range[i]
+		heal(lowest_health_ally)
 	
+func heal(target):
+		#animation_tree["parameters/conditions/heal"] = true
+		#await get_tree().create_timer(0.6).timeout
+		#animation_tree["parameters/conditions/heal"] = false
+		if target.has_method("be_healed"):
+			target.be_healed(10)

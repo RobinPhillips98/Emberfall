@@ -99,6 +99,11 @@ func take_damage(damage):
 	
 	if health <= 0.0:
 		health_depleted.emit()
+func get_health():
+	return health
+
+func be_healed(value):
+	health += value
 
 func modify_mana(value):
 	mana += value
@@ -146,6 +151,7 @@ func level_up():
 	stamina += 25
 	
 	# TODO: gaining new abilities
+	
 
 func _on_sword_body_entered(body):
 	if body.has_method("take_damage"):

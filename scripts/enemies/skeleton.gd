@@ -57,6 +57,12 @@ func take_damage(value):
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
 
+func get_health():
+	return health
+
+func be_healed(value):
+	health += value
+
 func attack():
 		animation_tree["parameters/conditions/attack"] = true
 		await get_tree().create_timer(0.3).timeout
