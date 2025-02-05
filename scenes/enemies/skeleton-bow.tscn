@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2mfgig6d02n6"]
 
-[ext_resource type="Script" path="res://scripts/skeleton-bow.gd" id="1_2yj6r"]
+[ext_resource type="Script" path="res://scripts/equipment/skeleton-bow.gd" id="1_2yj6r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjjds"]
 radius = 416.48
