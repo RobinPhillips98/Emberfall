@@ -74,11 +74,11 @@ Settings/Show_Tooltips=true
 
 [application]
 
-config/name="The Last Ember"
+config/name="Emberfall"
 run/main_scene="res://scenes/survivors_game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.png"
-config/windows_native_icon="res://icon.ico"
+config/icon="res://art/Logo-full.png"
+config/windows_native_icon="res://art/Logo-256.ico"
 
 [display]
 
