@@ -48,7 +48,7 @@ func _process(delta):
 	
 	#Animations
 	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
-	animation_tree.set("parameters/conditions/is_moving", velocity != Vector2.ZERO)
+	animation_tree.set("parameters/conditions/walk", velocity != Vector2.ZERO)
 
 	if Input.is_action_just_pressed("melee_attack"):
 		animation_tree["parameters/conditions/attack"] = true

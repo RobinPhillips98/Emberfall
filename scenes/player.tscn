@@ -154,7 +154,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wvevh"]
 advance_mode = 2
-advance_condition = &"is_moving"
+advance_condition = &"walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_11u58"]
 advance_mode = 2
@@ -176,7 +176,7 @@ advance_condition = &"idle"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7o0oa"]
 switch_mode = 2
 advance_mode = 2
-advance_condition = &"is_moving"
+advance_condition = &"walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7mosk"]
 advance_mode = 2
@@ -201,7 +201,7 @@ advance_condition = &"idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bfism"]
 advance_mode = 2
-advance_condition = &"is_moving"
+advance_condition = &"walk"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_y8hhd"]
 states/attack/node = SubResource("AnimationNodeAnimation_xib2d")
@@ -258,7 +258,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/attack = false
 parameters/conditions/hurt = false
 parameters/conditions/idle = false
-parameters/conditions/is_moving = false
+parameters/conditions/walk = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)
