@@ -12,7 +12,7 @@ var health = 30
 	
 func _process(delta):
 	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
-	animation_tree.set("parameters/conditions/is_moving", velocity != Vector2.ZERO)
+	animation_tree.set("parameters/conditions/walk", velocity != Vector2.ZERO)
 	
 
 func _physics_process(delta):
@@ -70,8 +70,8 @@ func _on_heal_timer_timeout() -> void:
 		heal(lowest_health_ally)
 	
 func heal(target):
-		#animation_tree["parameters/conditions/heal"] = true
-		#await get_tree().create_timer(0.6).timeout
-		#animation_tree["parameters/conditions/heal"] = false
+		animation_tree["parameters/conditions/heal"] = true
+		await get_tree().create_timer(0.7).timeout
+		animation_tree["parameters/conditions/heal"] = false
 		if target.has_method("be_healed"):
 			target.be_healed(10)

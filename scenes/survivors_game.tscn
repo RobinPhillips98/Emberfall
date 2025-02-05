@@ -109,7 +109,7 @@ position = Vector2(1302, 560)
 position = Vector2(216, 610)
 
 [node name="Mage" parent="." instance=ExtResource("7_sv6ev")]
-position = Vector2(663, 718)
+position = Vector2(663, 1052)
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

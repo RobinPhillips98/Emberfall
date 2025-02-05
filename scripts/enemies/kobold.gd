@@ -11,7 +11,7 @@ var health = 30
 
 func _process(delta):
 	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
-	animation_tree.set("parameters/conditions/is_moving", velocity != Vector2.ZERO)
+	animation_tree.set("parameters/conditions/walk", velocity != Vector2.ZERO)
 
 func _physics_process(delta):
 	direction = global_position.direction_to(player.global_position)

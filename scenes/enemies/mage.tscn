@@ -23,12 +23,54 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_opfdn"]
 resource_name = "death"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45, 46]
+}
 
 [sub_resource type="Animation" id="Animation_jmqej"]
 resource_name = "attack"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31]
+}
 
 [sub_resource type="Animation" id="Animation_87d3y"]
 resource_name = "hurt"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35]
+}
 
 [sub_resource type="Animation" id="Animation_sxe1a"]
 resource_name = "idle"
@@ -42,14 +84,29 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="Animation" id="Animation_55ydt"]
 resource_name = "walk"
+length = 0.7
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v1ko3"]
 _data = {
@@ -61,11 +118,11 @@ _data = {
 "walk": SubResource("Animation_55ydt")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xib2d"]
-animation = &"attack"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pikfo"]
 animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a16l4"]
+animation = &"heal"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ajtk"]
 animation = &"hurt"
@@ -81,33 +138,11 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wvevh"]
 advance_mode = 2
-advance_condition = &"is_moving"
+advance_condition = &"walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_11u58"]
 advance_mode = 2
 advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ndnuj"]
-advance_mode = 2
-advance_condition = &"attack"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bq77n"]
-advance_mode = 2
-advance_condition = &"attack"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jh42m"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7o0oa"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"is_moving"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7mosk"]
-advance_mode = 2
-advance_condition = &"hurt"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_17yo7"]
 advance_mode = 2
@@ -117,10 +152,6 @@ advance_condition = &"hurt"
 advance_mode = 2
 advance_condition = &"hurt"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mh8ro"]
-advance_mode = 2
-advance_condition = &"attack"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_56v7i"]
 switch_mode = 2
 advance_mode = 2
@@ -128,7 +159,7 @@ advance_condition = &"idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bfism"]
 advance_mode = 2
-advance_condition = &"is_moving"
+advance_condition = &"walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y3p76"]
 advance_mode = 2
@@ -142,24 +173,51 @@ advance_condition = &"death"
 advance_mode = 2
 advance_condition = &"death"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ckei2"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uv73f"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fxqy5"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_28qra"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rs52v"]
 advance_mode = 2
 advance_condition = &"death"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dk1l6"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yc5c1"]
+advance_mode = 2
+advance_condition = &"heal"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1gxht"]
+advance_mode = 2
+advance_condition = &"heal"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e73tw"]
+advance_mode = 2
+advance_condition = &"heal"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fo0ye"]
 states/End/position = Vector2(1200, 100)
-states/attack/node = SubResource("AnimationNodeAnimation_xib2d")
-states/attack/position = Vector2(444, -1)
 states/death/node = SubResource("AnimationNodeAnimation_pikfo")
 states/death/position = Vector2(1011, 40)
+states/heal/node = SubResource("AnimationNodeAnimation_a16l4")
+states/heal/position = Vector2(406, 0.75)
 states/hurt/node = SubResource("AnimationNodeAnimation_2ajtk")
 states/hurt/position = Vector2(706, -1)
 states/idle/node = SubResource("AnimationNodeAnimation_gmd14")
 states/idle/position = Vector2(356, 100)
 states/walk/node = SubResource("AnimationNodeAnimation_jr1su")
 states/walk/position = Vector2(781, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_1qhxs"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_wvevh"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_11u58"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_ndnuj"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_bq77n"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_jh42m"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_7o0oa"), "attack", "hurt", SubResource("AnimationNodeStateMachineTransition_7mosk"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_17yo7"), "walk", "hurt", SubResource("AnimationNodeStateMachineTransition_sr5wr"), "hurt", "attack", SubResource("AnimationNodeStateMachineTransition_mh8ro"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_56v7i"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_bfism"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_y3p76"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_q1ctf"), "hurt", "death", SubResource("AnimationNodeStateMachineTransition_ui33g"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_ckei2")]
-graph_offset = Vector2(-205, -54)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_1qhxs"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_wvevh"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_11u58"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_17yo7"), "walk", "hurt", SubResource("AnimationNodeStateMachineTransition_sr5wr"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_56v7i"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_bfism"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_y3p76"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_q1ctf"), "hurt", "death", SubResource("AnimationNodeStateMachineTransition_ui33g"), "heal", "idle", SubResource("AnimationNodeStateMachineTransition_uv73f"), "heal", "hurt", SubResource("AnimationNodeStateMachineTransition_fxqy5"), "heal", "walk", SubResource("AnimationNodeStateMachineTransition_28qra"), "heal", "death", SubResource("AnimationNodeStateMachineTransition_rs52v"), "idle", "heal", SubResource("AnimationNodeStateMachineTransition_yc5c1"), "walk", "heal", SubResource("AnimationNodeStateMachineTransition_1gxht"), "hurt", "heal", SubResource("AnimationNodeStateMachineTransition_e73tw")]
+graph_offset = Vector2(125, -62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jvcu"]
 size = Vector2(34.8226, 23.1509)
@@ -189,12 +247,13 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_dk1l6")
-parameters/conditions/attack = false
+tree_root = SubResource("AnimationNodeStateMachine_fo0ye")
+anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/death = false
+parameters/conditions/heal = false
 parameters/conditions/hurt = false
 parameters/conditions/idle = false
-parameters/conditions/is_moving = false
+parameters/conditions/walk = false
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true

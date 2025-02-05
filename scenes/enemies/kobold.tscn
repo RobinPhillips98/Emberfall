@@ -162,7 +162,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wvevh"]
 advance_mode = 2
-advance_condition = &"is_moving"
+advance_condition = &"walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_11u58"]
 advance_mode = 2
@@ -209,7 +209,7 @@ advance_condition = &"idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bfism"]
 advance_mode = 2
-advance_condition = &"is_moving"
+advance_condition = &"walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y3p76"]
 advance_mode = 2
@@ -277,6 +277,7 @@ parameters/conditions/death = false
 parameters/conditions/hurt = false
 parameters/conditions/idle = false
 parameters/conditions/is_moving = false
+parameters/conditions/walk = false
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true

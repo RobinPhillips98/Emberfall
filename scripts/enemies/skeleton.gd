@@ -12,9 +12,9 @@ var health = 30
 	
 func _process(delta):
 	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
-	animation_tree.set("parameters/conditions/is_moving", velocity != Vector2.ZERO)
+	animation_tree.set("parameters/conditions/walk", velocity != Vector2.ZERO)
 	
-	if global_position.distance_to(player.global_position) < ATTACK_RANGE and randf() < 0.25 * delta:
+	if global_position.distance_to(player.global_position) > EVADE_RANGE and global_position.distance_to(player.global_position) < ATTACK_RANGE and randf() < 0.25 * delta:
 		attack()
 
 func _physics_process(delta):
