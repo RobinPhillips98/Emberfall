@@ -47,6 +47,11 @@ func take_damage(value):
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
 
+func get_health():
+	return health
+
+func be_healed(value):
+	health += value
 
 #func _on_timer_timeout() -> void:
 	#if global_position.distance_to(player.global_position) < ATTACK_RANGE:
