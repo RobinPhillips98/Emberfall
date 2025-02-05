@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bdbdd4fwog0b6" path="res://art/enemies/placeholder-skeleton-sprite-sheet.png" id="1_4myfc"]
 [ext_resource type="Script" path="res://scripts/enemies/skeleton.gd" id="1_qy3cl"]
-[ext_resource type="PackedScene" uid="uid://c2mfgig6d02n6" path="res://scenes/skeleton-bow.tscn" id="3_y344s"]
+[ext_resource type="PackedScene" uid="uid://c2mfgig6d02n6" path="res://scenes/enemies/skeleton-bow.tscn" id="3_y344s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4cev"]
 size = Vector2(18, 18)
