@@ -1,10 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://cyspwdctflykh"]
+[gd_scene load_steps=36 format=3 uid="uid://cyspwdctflykh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xsdsg"]
-[ext_resource type="Resource" uid="uid://dcej5n88c5di3" path="res://inventory/player_inventory.tres" id="2_m6gl8"]
-[ext_resource type="PackedScene" uid="uid://bnw6nxkuho3rt" path="res://inventory/inv_ui.tscn" id="3_3bd7g"]
 [ext_resource type="Texture2D" uid="uid://dbejxgifk8qrw" path="res://art/characters/generic_adventurer_sprite_sheet.png" id="3_cycrn"]
-[ext_resource type="PackedScene" uid="uid://ot52xq0gc0oi" path="res://scenes/bow.tscn" id="3_ulrlk"]
+[ext_resource type="PackedScene" uid="uid://ot52xq0gc0oi" path="res://scenes/equipment/bow.tscn" id="3_ulrlk"]
 
 [sub_resource type="Animation" id="Animation_t0bo5"]
 length = 0.001
@@ -240,7 +238,6 @@ size = Vector2(37, 63)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_xsdsg")
-inv = ExtResource("2_m6gl8")
 
 [node name="Eldran" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -269,6 +266,7 @@ shape = SubResource("CircleShape2D_1j46o")
 
 [node name="Gun" parent="." instance=ExtResource("3_ulrlk")]
 position = Vector2(0, -7)
+script = null
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -319,13 +317,6 @@ show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 29)
-
-[node name="Inv_UI" parent="." instance=ExtResource("3_3bd7g")]
-visible = false
-offset_left = -31.0
-offset_top = -142.0
-offset_right = 32.0
-offset_bottom = -79.0
 
 [node name="Sword" type="Area2D" parent="."]
 unique_name_in_owner = true
