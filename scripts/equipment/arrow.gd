@@ -1,7 +1,6 @@
 extends Area2D
 
 var travelled_distance = 0
-@onready var player = get_node("/root/Game/Player")
 
 func _physics_process(delta):
 	const SPEED = 1000
