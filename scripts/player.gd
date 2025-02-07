@@ -7,7 +7,7 @@ signal health_depleted
 const LEVEL_UP_VALUE : int = 1000
 const BASE_SPEED = 600
 var max_health: float = 100.0
-var max_mana: float = 100.0
+var max_mana: float = 0.0
 var max_stamina: float = 50.0
 
 # Attributes
@@ -40,20 +40,13 @@ func _process(delta):
 	if stamina < max_stamina:
 		stamina += stamina_regen_rate * delta
 
-	if Input.is_action_just_pressed('hotkey_1') and health_potions > 0:
-		drink_potion("health_potion")
-
-	if Input.is_action_just_pressed('hotkey_2') and mana_potions > 0:
-		drink_potion("mana_potion")
+	input()
 	
 	#Animations
 	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
 	animation_tree.set("parameters/conditions/walk", velocity != Vector2.ZERO)
-
-	if Input.is_action_just_pressed("melee_attack"):
-		animation_tree["parameters/conditions/attack"] = true
-	else:
-		animation_tree["parameters/conditions/attack"] = false
+		
+	%XPLabel.text = "XP: " + str(xp)
 
 func _physics_process(delta):
 	
@@ -73,6 +66,13 @@ func _physics_process(delta):
 		#health -= DAMAGE_RATE * overlapping_mobs.size() * delta
 	if health <= 0.0:
 		health_depleted.emit()
+		
+	if OS.is_debug_build():
+		debug_input()
+		
+func debug_input():
+	if Input.is_action_just_pressed("debug_level_up"):
+		level_up()
 
 func drink_potion(type):
 	match type:
@@ -84,6 +84,18 @@ func drink_potion(type):
 		"mana_potion":
 			modify_mana(max_mana * .3)
 			mana_potions -= 1
+
+func input():
+	if Input.is_action_just_pressed("melee_attack"):
+		animation_tree["parameters/conditions/attack"] = true
+	else:
+		animation_tree["parameters/conditions/attack"] = false
+	
+	if Input.is_action_just_pressed('hotkey_1') and health_potions > 0:
+		drink_potion("health_potion")
+
+	if Input.is_action_just_pressed('hotkey_2') and mana_potions > 0:
+		drink_potion("mana_potion")
 
 func gain_potion(type):
 	match type:
@@ -104,6 +116,8 @@ func get_health():
 
 func be_healed(value):
 	health += value
+	if health > max_health:
+		health = max_health
 
 func modify_mana(value):
 	mana += value
@@ -120,6 +134,8 @@ func set_defense(value):
 
 func gain_xp(value):
 	xp += value
+	if xp < 0:
+		xp = 0
 	if xp >= LEVEL_UP_VALUE:
 		level_up()
 
@@ -149,8 +165,6 @@ func level_up():
 	max_stamina += 25
 	%StaminaBar.max_value = max_stamina
 	stamina += 25
-	
-	# TODO: gaining new abilities
 	
 
 func _on_sword_body_entered(body):

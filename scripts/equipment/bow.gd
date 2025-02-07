@@ -1,16 +1,22 @@
 extends Area2D
 
+@onready var player = get_node("/root/Game/Player")
+
 func _physics_process(delta):
-	look_at(get_global_mouse_position())
-	
-	if Input.is_action_just_pressed("ranged_attack"):
-		shoot()
+	input()
 	
 	#var enemies_in_range = get_overlapping_bodies()
 	#
 	#if enemies_in_range.size() > 0:
 		#var target_enemy = enemies_in_range[0]
 		#look_at(target_enemy.global_position)
+		
+func input():
+	look_at(get_global_mouse_position())
+		
+	
+	if Input.is_action_just_pressed("ranged_attack"):
+		shoot()
 
 func shoot():
 	const ARROW = preload("res://scenes/equipment/arrow.tscn")

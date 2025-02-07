@@ -3,7 +3,9 @@ extends CharacterBody2D
 const BASE_SPEED = 300
 const AGGRO_RANGE = 250
 const ATTACK_RANGE = 60
-var health = 30
+const MAX_HEALTH = 30
+var health = MAX_HEALTH
+var died : bool = false
 @onready var speed = BASE_SPEED
 @onready var player = get_node("/root/Game/Player")
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -36,6 +38,9 @@ func take_damage(value):
 	animation_tree["parameters/conditions/hurt"] = false
 	
 	if health <= 0:
+		if not died:
+			player.gain_xp(50)
+			died = true
 		
 		animation_tree["parameters/conditions/death"] = true
 		await get_tree().create_timer(0.6).timeout
@@ -52,6 +57,8 @@ func get_health():
 
 func be_healed(value):
 	health += value
+	if health > MAX_HEALTH:
+		health = MAX_HEALTH
 
 #func _on_timer_timeout() -> void:
 	#if global_position.distance_to(player.global_position) < ATTACK_RANGE:
