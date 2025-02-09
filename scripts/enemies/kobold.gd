@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 const BASE_SPEED = 300
-const AGGRO_RANGE = 250
+const AGGRO_RANGE = 300
 const MAX_HEALTH = 30
 const DAMAGE_DEALT = 20
 const ATTACK_CHANCE = 0.5
-const XP_VALUE = 50
+const XP_VALUE = 100
 var health = MAX_HEALTH
 var died : bool = false
 @onready var speed = BASE_SPEED
@@ -51,7 +51,8 @@ func take_damage(value):
 		if not died:
 			player.gain_xp(XP_VALUE)
 			died = true
-		
+			
+		$DeathSound.play()
 		animation_tree["parameters/conditions/death"] = true
 		await get_tree().create_timer(0.6).timeout
 		animation_tree["parameters/conditions/death"] = false

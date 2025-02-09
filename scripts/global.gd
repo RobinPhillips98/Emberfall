@@ -2,6 +2,10 @@ extends Node2D
 
 var level_count: int = 1
 
+func game_over():
+	get_node("/root/Game/GameOver").visible = true
+	get_tree().paused = true
+
 func next_level():
 	match level_count:
 		1:

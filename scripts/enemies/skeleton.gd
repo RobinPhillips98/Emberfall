@@ -6,7 +6,7 @@ const EVADE_RANGE = AGGRO_RANGE / 2
 const ATTACK_RANGE = EVADE_RANGE + 100
 const ATTACK_CHANCE = .25
 const MAX_HEALTH = 30
-const XP_VALUE = 100
+const XP_VALUE = 125
 var health = MAX_HEALTH
 var died: bool = false
 @onready var speed = BASE_SPEED
@@ -51,6 +51,7 @@ func take_damage(value):
 			player.gain_xp(XP_VALUE)
 			died = true
 		
+		$DeathSound.play()
 		animation_tree["parameters/conditions/death"] = true
 		await get_tree().create_timer(0.6).timeout
 		animation_tree["parameters/conditions/death"] = false

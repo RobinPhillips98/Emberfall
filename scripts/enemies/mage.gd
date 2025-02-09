@@ -52,6 +52,8 @@ func take_damage(value):
 			player.gain_xp(XP_VALUE)
 			died = true
 		
+		$DeathSound.play()
+		
 		animation_tree["parameters/conditions/death"] = true
 		await get_tree().create_timer(0.6).timeout
 		animation_tree["parameters/conditions/death"] = false

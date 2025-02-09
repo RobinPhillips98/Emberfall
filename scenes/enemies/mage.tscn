@@ -1,7 +1,8 @@
-[gd_scene load_steps=70 format=3 uid="uid://co20ernxnkqri"]
+[gd_scene load_steps=71 format=3 uid="uid://co20ernxnkqri"]
 
 [ext_resource type="Script" path="res://scripts/enemies/mage.gd" id="1_8sn0f"]
 [ext_resource type="Texture2D" uid="uid://bsrdmu2isokk0" path="res://art/enemies/placeholder-cultist-spritesheet.png" id="2_x1aak"]
+[ext_resource type="AudioStream" uid="uid://bmqi1csu7k2l0" path="res://sounds/sound-effects/enemies/death-sound.mp3" id="3_j5h7o"]
 
 [sub_resource type="Animation" id="Animation_rj2ip"]
 length = 0.001
@@ -652,5 +653,8 @@ debug_color = Color(0, 0.64633, 0.239646, 0.42)
 [node name="HealTimer" type="Timer" parent="."]
 wait_time = 60.0
 autostart = true
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_j5h7o")
 
 [connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]

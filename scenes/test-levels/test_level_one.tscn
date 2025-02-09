@@ -55,19 +55,19 @@ position = Vector2(258, 174)
 position = Vector2(231, 134)
 
 [node name="Kobold" parent="." instance=ExtResource("4_dcnrv")]
-position = Vector2(1302, 560)
+position = Vector2(1495, 613)
 
 [node name="Kobold2" parent="." instance=ExtResource("4_dcnrv")]
 position = Vector2(1500, 408)
 
 [node name="Kobold3" parent="." instance=ExtResource("4_dcnrv")]
-position = Vector2(856, 394)
+position = Vector2(802, 355)
 
 [node name="Kobold4" parent="." instance=ExtResource("4_dcnrv")]
-position = Vector2(797, 852)
+position = Vector2(1142, 995)
 
 [node name="Kobold5" parent="." instance=ExtResource("4_dcnrv")]
-position = Vector2(352, 823)
+position = Vector2(1137, 826)
 
 [node name="LevelEnd" parent="." instance=ExtResource("4_3x5a2")]
 position = Vector2(1636, 887)
@@ -78,6 +78,7 @@ position = Vector2(104, 104)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_hrl56")
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 

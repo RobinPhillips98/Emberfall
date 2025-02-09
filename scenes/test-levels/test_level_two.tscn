@@ -73,6 +73,7 @@ scale = Vector2(3.75676, 3.91667)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_j44aa")
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
