@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://vshqcqcyqbjh"]
+
+[ext_resource type="TileSet" uid="uid://dt3pfax6r13m1" path="res://resources/tilesets/level_four_tileset.tres" id="1_p7ah0"]
+
+[node name="LevelFour" type="Node2D"]
+
+[node name="VorrakLair" type="Node2D" parent="."]
+
+[node name="Wall" type="TileMapLayer" parent="VorrakLair"]
+tile_set = ExtResource("1_p7ah0")
+
+[node name="Floor" type="TileMapLayer" parent="VorrakLair"]
+tile_set = ExtResource("1_p7ah0")
+
+[node name="Decorations" type="TileMapLayer" parent="VorrakLair"]
+tile_set = ExtResource("1_p7ah0")
