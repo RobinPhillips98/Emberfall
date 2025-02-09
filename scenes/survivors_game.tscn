@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0tx21fbanvl5"]
+[gd_scene load_steps=9 format=3 uid="uid://b0tx21fbanvl5"]
 
 [ext_resource type="PackedScene" uid="uid://cyspwdctflykh" path="res://scenes/player.tscn" id="1_i7wap"]
 [ext_resource type="Script" path="res://scripts/survivors_game.gd" id="1_wbtww"]
@@ -8,12 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bulg58ab8ik56" path="res://scenes/enemies/kobold.tscn" id="5_ep1aq"]
 [ext_resource type="PackedScene" uid="uid://d1dw46vj4kwcc" path="res://scenes/enemies/skeleton.tscn" id="6_fah6n"]
 [ext_resource type="PackedScene" uid="uid://co20ernxnkqri" path="res://scenes/enemies/mage.tscn" id="7_sv6ev"]
-
-[sub_resource type="Curve2D" id="Curve2D_hjwbj"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -69, -85, 0, 0, 0, 0, 1997, -90, 0, 0, 0, 0, 1998, 1154, 0, 0, 0, 0, -87, 1139, 0, 0, 0, 0, -69, -85)
-}
-point_count = 5
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -25,18 +19,10 @@ layer = -30
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1918.0
 offset_bottom = 1084.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_i7wap")]
 position = Vector2(942, 558)
-
-[node name="Path2D" type="Path2D" parent="Player"]
-position = Vector2(-942, -558)
-curve = SubResource("Curve2D_hjwbj")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
-unique_name_in_owner = true
-position = Vector2(-69, -85)
-rotation = -0.00242013
 
 [node name="PineTree" parent="." instance=ExtResource("2_lljse")]
 position = Vector2(494, 882)
@@ -61,9 +47,6 @@ position = Vector2(1339, 736)
 
 [node name="PineTree8" parent="." instance=ExtResource("2_lljse")]
 position = Vector2(1634, 596)
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -143,4 +126,3 @@ position = Vector2(216, 610)
 position = Vector2(291, 666)
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

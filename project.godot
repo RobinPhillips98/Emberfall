@@ -75,10 +75,15 @@ Settings/Show_Tooltips=true
 [application]
 
 config/name="Emberfall"
-run/main_scene="res://scenes/survivors_game.tscn"
+run/main_scene="res://scenes/start_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://art/Logo-full.png"
 config/windows_native_icon="res://art/Logo-256.ico"
+
+[autoload]
+
+Global="*res://scripts/global.gd"
+PlayerVariables="*res://scripts/player_variables.gd"
 
 [display]
 
