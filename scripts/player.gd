@@ -24,6 +24,7 @@ signal health_depleted
 #
 ##Experience and Level
 const MAX_LEVEL: int = 4
+const ATTACK_STAMINA_COST = 25
 #var xp: int = 0
 #var level: int = 1
 
@@ -45,6 +46,7 @@ func _process(delta):
 	animation_tree.set("parameters/conditions/walk", velocity != Vector2.ZERO)
 		
 	%XPLabel.text = "XP: " + str(PlayerVariables.xp)
+	%HealthPotionNum.text =str(PlayerVariables.health_potions)
 	
 	if OS.is_debug_build():
 		debug_input()
@@ -59,21 +61,12 @@ func _physics_process(delta):
 	
 	velocity = direction * PlayerVariables.speed
 	move_and_slide()
-		#if direction.x > 0:
-		#%Eldran.flip_h = false
-	#elif direction.x < 0:
-		#%Eldran.flip_h = true
-	#const DAMAGE_RATE = 5.0
-	#var overlapping_mobs = %HurtBox.get_overlapping_bodies()
-	#if overlapping_mobs.size() > 0:
-		#health -= DAMAGE_RATE * overlapping_mobs.size() * delta
-	#if health <= 0.0:
-		#health_depleted.emit()
 		
 func input():
-	if Input.is_action_just_pressed("melee_attack") and PlayerVariables.stamina >= 50:
+	if Input.is_action_just_pressed("melee_attack") and PlayerVariables.stamina >= ATTACK_STAMINA_COST:
 		animation_tree["parameters/conditions/attack"] = true
-		PlayerVariables.stamina -= 50
+		$Audio/Attack.play()
+		PlayerVariables.stamina -= ATTACK_STAMINA_COST
 	else:
 		animation_tree["parameters/conditions/attack"] = false
 	
@@ -100,12 +93,17 @@ func gain_potion(type):
 			PlayerVariables.health_potions += 1
 		"mana_potion":
 			PlayerVariables.mana_potions += 1
-
+	$Audio/Pickup.play()
+	
 func take_damage(damage):
 	PlayerVariables.health -= damage
+	$Audio/HitReceived.play()
+	$Audio/Damage.play()
 	
 	if PlayerVariables.health <= 0.0:
-		health_depleted.emit()
+		$Audio/GameOver.play()
+		Global.game_over()
+		
 func get_health():
 	return PlayerVariables.health
 
@@ -153,7 +151,7 @@ func level_up():
 	
 	gain_xp(-PlayerVariables.level_up_value)
 	PlayerVariables.level += 1
-	PlayerVariables.level_up_value += 1000
+	PlayerVariables.level_up_value += 500
 	
 	PlayerVariables.max_health += 100
 	%HealthBar.max_value = PlayerVariables.max_health
@@ -169,10 +167,12 @@ func level_up():
 	%StaminaBar.max_value = PlayerVariables.max_stamina
 	PlayerVariables.stamina += 25
 	
+	$Audio/LevelUp.play()
 
 func _on_sword_body_entered(body):
 	if body.has_method("take_damage"):
 			body.take_damage(10)
+			$Audio/Hit.play()
 
 func debug_input():
 	if Input.is_action_just_pressed("debug_level_up"):

@@ -1,9 +1,25 @@
-[gd_scene load_steps=28 format=3 uid="uid://d1dw46vj4kwcc"]
+[gd_scene load_steps=29 format=3 uid="uid://d1dw46vj4kwcc"]
 
 [ext_resource type="Script" path="res://scripts/enemies/skeleton.gd" id="1_qy3cl"]
 [ext_resource type="Texture2D" uid="uid://kslafu6jv4f" path="res://art/enemies/placeholder-skeleton-spritesheet.png" id="2_ppevj"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://criyrsysknauf" path="res://enemy_base_animation_tree.tres" id="3_ii4ea"]
 [ext_resource type="PackedScene" uid="uid://c2mfgig6d02n6" path="res://scenes/enemies/skeleton-bow.tscn" id="3_y344s"]
+[ext_resource type="AudioStream" uid="uid://bmqi1csu7k2l0" path="res://sounds/sound-effects/enemies/death-sound.mp3" id="5_cf2rl"]
+
+[sub_resource type="Animation" id="Animation_rd5aa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_qwj8u"]
 resource_name = "attack_down"
@@ -34,21 +50,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"shoot"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_rd5aa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_rfebp"]
@@ -457,7 +458,6 @@ script = ExtResource("1_qy3cl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.661522, -5.08743)
-scale = Vector2(1, 1)
 texture = ExtResource("2_ppevj")
 hframes = 12
 vframes = 20
@@ -485,8 +485,10 @@ parameters/run/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2.69334)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_m4cev")
 
 [node name="Bow" parent="." instance=ExtResource("3_y344s")]
 position = Vector2(0.330761, -7.18225)
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_cf2rl")

@@ -63,8 +63,9 @@ position = Vector2(965, 200)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_bmvks")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_hui0i")
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
