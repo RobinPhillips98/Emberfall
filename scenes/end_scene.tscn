@@ -1,13 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://car3o514a0je7"]
+[gd_scene load_steps=3 format=3 uid="uid://car3o514a0je7"]
 
 [ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="1_l2jun"]
+[ext_resource type="AudioStream" uid="uid://bf7bqrt4mpe44" path="res://sounds/music/credits.mp3" id="2_vrgcr"]
 
 [node name="EndScene" type="Node"]
 
-[node name="Paused" type="CanvasLayer" parent="."]
+[node name="YouWin" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 
-[node name="ColorRect" type="ColorRect" parent="Paused"]
+[node name="ColorRect" type="ColorRect" parent="YouWin"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.513726)
 
-[node name="Label" type="Label" parent="Paused/ColorRect"]
+[node name="Label" type="Label" parent="YouWin/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,3 +32,8 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_l2jun")
 theme_override_font_sizes/font_size = 200
 text = "YOU WIN!"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vrgcr")
+autoplay = true
+parameters/looping = true

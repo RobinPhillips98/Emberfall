@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://crom7w0y31a0d"]
+[gd_scene load_steps=10 format=3 uid="uid://crom7w0y31a0d"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_6hvku"]
 [ext_resource type="PackedScene" uid="uid://11rpmqf67lxd" path="res://scenes/pine_tree.tscn" id="1_amfl4"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://d1dw46vj4kwcc" path="res://scenes/enemies/skeleton.tscn" id="4_jq5vh"]
 [ext_resource type="PackedScene" uid="uid://cyspwdctflykh" path="res://scenes/player.tscn" id="6_b88hp"]
 [ext_resource type="PackedScene" uid="uid://dbwsjv3dyybcs" path="res://scenes/level_end.tscn" id="7_hm8tj"]
+[ext_resource type="AudioStream" uid="uid://btspc1sh101es" path="res://sounds/music/splintered_halls_background.mp3" id="8_j44aa"]
+[ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="9_x5mea"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -68,3 +70,38 @@ position = Vector2(945, 60)
 [node name="LevelEnd" parent="." instance=ExtResource("7_hm8tj")]
 position = Vector2(770, 958)
 scale = Vector2(3.75676, 3.91667)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_j44aa")
+autoplay = true
+parameters/looping = true
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.513726)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -11.5
+offset_right = 46.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.798643, 0, 0.0756476, 1)
+theme_override_fonts/font = ExtResource("9_x5mea")
+theme_override_font_sizes/font_size = 200
+text = "YOU DIED"
