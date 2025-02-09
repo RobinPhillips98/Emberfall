@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3mw8cam5p6ae"]
+
+[ext_resource type="TileSet" uid="uid://da2j3r44u8jtj" path="res://resources/tilesets/level_two_tileset.tres" id="1_lcfvl"]
+
+[node name="LevelTwo" type="Node2D"]
+
+[node name="OvergrownRuins" type="Node2D" parent="."]
+
+[node name="Walls" type="TileMapLayer" parent="OvergrownRuins"]
+tile_set = ExtResource("1_lcfvl")
+
+[node name="Floor" type="TileMapLayer" parent="OvergrownRuins"]
+tile_set = ExtResource("1_lcfvl")
+
+[node name="Decorations" type="TileMapLayer" parent="OvergrownRuins"]
+tile_set = ExtResource("1_lcfvl")

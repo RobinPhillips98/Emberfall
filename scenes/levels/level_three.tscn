@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d28qckug7qt5n"]
+
+[ext_resource type="TileSet" uid="uid://exrk7bkl8opj" path="res://resources/tilesets/level_three_tileset.tres" id="1_ma6lc"]
+
+[node name="LevelThree" type="Node2D"]
+
+[node name="ForsakenKeep" type="Node2D" parent="."]
+
+[node name="Walls" type="TileMapLayer" parent="ForsakenKeep"]
+tile_set = ExtResource("1_ma6lc")
+
+[node name="Floor" type="TileMapLayer" parent="ForsakenKeep"]
+tile_set = ExtResource("1_ma6lc")
+
+[node name="Decorations" type="TileMapLayer" parent="ForsakenKeep"]
+tile_set = ExtResource("1_ma6lc")

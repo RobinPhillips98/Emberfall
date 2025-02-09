@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkxkx5v1feray"]
+
+[ext_resource type="TileSet" uid="uid://w8x1dccgdbr3" path="res://resources/tilesets/level_one_tileset.tres" id="1_dfuc4"]
+
+[node name="LevelOne" type="Node2D"]
+
+[node name="SplinteredHalls" type="Node2D" parent="."]
+
+[node name="Walls" type="TileMapLayer" parent="SplinteredHalls"]
+tile_set = ExtResource("1_dfuc4")
+
+[node name="Floors" type="TileMapLayer" parent="SplinteredHalls"]
+tile_set = ExtResource("1_dfuc4")
+
+[node name="Decorations" type="TileMapLayer" parent="SplinteredHalls"]
+tile_set = ExtResource("1_dfuc4")
