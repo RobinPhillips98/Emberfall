@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0b5ws0cf8fsl"]
+[gd_scene load_steps=5 format=3 uid="uid://c0b5ws0cf8fsl"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_umicg"]
 [ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="2_nmxro"]
 [ext_resource type="Texture2D" uid="uid://dvc2ya38mrltj" path="res://art/discord-emberfall-logo.png" id="3_bmvks"]
+[ext_resource type="AudioStream" uid="uid://cys7ckfml3iyi" path="res://sounds/music/main_menu_theme.mp3" id="4_hui0i"]
 
 [node name="StartMenu" type="Node2D"]
 script = ExtResource("1_umicg")
@@ -61,6 +62,12 @@ text = "Quit"
 position = Vector2(965, 200)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_bmvks")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hui0i")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/QuitButton" to="." method="_on_quit_button_pressed"]
