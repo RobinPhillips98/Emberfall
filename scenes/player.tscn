@@ -581,7 +581,6 @@ parameters/idle/blend_position = Vector2(0.00411141, 0.00313473)
 parameters/run/blend_position = Vector2(-0.160347, 0.278997)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_iw2cf")
 
