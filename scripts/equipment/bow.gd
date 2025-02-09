@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var player = get_node("/root/Game/Player")
-const STAMINA_COST = 25
+const STAMINA_COST = 50
 
 func _physics_process(delta):
 	input()
@@ -16,7 +16,7 @@ func input():
 	look_at(get_global_mouse_position())
 		
 	
-	if Input.is_action_just_pressed("ranged_attack") and player.get_stamina() > STAMINA_COST:
+	if Input.is_action_just_pressed("ranged_attack") and player.get_stamina() >= STAMINA_COST:
 		shoot()
 
 func shoot():

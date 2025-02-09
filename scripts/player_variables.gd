@@ -1,7 +1,7 @@
 extends Node
 
 #Base numbers
-var level_up_value = 1000
+var level_up_value = 500
 var max_health: float = 100.0
 var max_mana: float = 0.0
 var max_stamina: float = 50.0

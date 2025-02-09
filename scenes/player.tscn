@@ -1,9 +1,16 @@
-[gd_scene load_steps=53 format=3 uid="uid://cyspwdctflykh"]
+[gd_scene load_steps=61 format=3 uid="uid://cyspwdctflykh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xsdsg"]
 [ext_resource type="Texture2D" uid="uid://df4xbtl7qxmr6" path="res://art/characters/placeholder-player-spritesheet.png" id="2_vadgu"]
 [ext_resource type="PackedScene" uid="uid://ot52xq0gc0oi" path="res://scenes/equipment/bow.tscn" id="3_ulrlk"]
 [ext_resource type="FontFile" uid="uid://b6nqk4dcgkctt" path="res://art/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="4_24qkn"]
+[ext_resource type="Texture2D" uid="uid://c8bxkeoya4sjd" path="res://art/equipment/placeholder_health_potion.png" id="5_337tl"]
+[ext_resource type="AudioStream" uid="uid://bcumokq5npyo4" path="res://sounds/sound-effects/Player/sword-swing.wav" id="6_reilb"]
+[ext_resource type="AudioStream" uid="uid://r5hm7oa4ps2s" path="res://sounds/sound-effects/Player/sword-hit .mp3" id="7_swrfr"]
+[ext_resource type="AudioStream" uid="uid://c32mtopbqjync" path="res://sounds/sound-effects/Player/level-up.mp3" id="8_1y8lj"]
+[ext_resource type="AudioStream" uid="uid://b6r77u37js8nm" path="res://sounds/sound-effects/Player/damage-taken.mp3" id="10_85ohl"]
+[ext_resource type="AudioStream" uid="uid://d3gbooup5tvmg" path="res://sounds/sound-effects/game-over-sound.mp3" id="11_8famx"]
+[ext_resource type="AudioStream" uid="uid://c5smwd53xkdy4" path="res://sounds/sound-effects/Player/player-hit.wav" id="11_vomal"]
 
 [sub_resource type="Animation" id="Animation_42jkp"]
 length = 0.001
@@ -553,6 +560,12 @@ size = Vector2(105, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5roio"]
 size = Vector2(40, 102)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh7ls"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_xsdsg")
@@ -670,5 +683,74 @@ theme_override_font_sizes/font_size = 60
 text = "XP: 0"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -54.0
+offset_top = 464.0
+offset_right = 59.0
+offset_bottom = 570.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kh7ls")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_337tl")
+
+[node name="HealthPotionNum" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_24qkn")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 14.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_24qkn")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("6_reilb")
+volume_db = 5.0
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("7_swrfr")
+
+[node name="LevelUp" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("8_1y8lj")
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="Audio"]
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("10_85ohl")
+volume_db = 5.0
+
+[node name="HitReceived" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("11_vomal")
+
+[node name="GameOver" type="AudioStreamPlayer" parent="Audio"]
+process_mode = 2
+stream = ExtResource("11_8famx")
 
 [connection signal="body_entered" from="Sword" to="." method="_on_sword_body_entered"]

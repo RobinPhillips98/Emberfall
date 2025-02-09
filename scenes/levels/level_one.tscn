@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkxkx5v1feray"]
+[gd_scene load_steps=4 format=3 uid="uid://dkxkx5v1feray"]
 
 [ext_resource type="TileSet" uid="uid://w8x1dccgdbr3" path="res://resources/tilesets/level_one_tileset.tres" id="1_dfuc4"]
+[ext_resource type="AudioStream" uid="uid://btspc1sh101es" path="res://sounds/music/splintered_halls_background.mp3" id="2_s80c5"]
+[ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="3_0y0pw"]
 
 [node name="LevelOne" type="Node2D"]
 
@@ -14,3 +16,38 @@ tile_set = ExtResource("1_dfuc4")
 
 [node name="Decorations" type="TileMapLayer" parent="SplinteredHalls"]
 tile_set = ExtResource("1_dfuc4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s80c5")
+autoplay = true
+parameters/looping = true
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.513726)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -11.5
+offset_right = 46.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.798643, 0, 0.0756476, 1)
+theme_override_fonts/font = ExtResource("3_0y0pw")
+theme_override_font_sizes/font_size = 200
+text = "YOU DIED"
