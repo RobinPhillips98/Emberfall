@@ -2,33 +2,43 @@ extends CharacterBody2D
 
 const BASE_SPEED = 300
 const AGGRO_RANGE = 250
-const ATTACK_RANGE = 60
 const MAX_HEALTH = 30
+const DAMAGE_DEALT = 20
+const ATTACK_CHANCE = 0.5
+const XP_VALUE = 50
 var health = MAX_HEALTH
 var died : bool = false
 @onready var speed = BASE_SPEED
 @onready var player = get_node("/root/Game/Player")
-@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var animation_tree = $AnimationTree
 @onready var direction = global_position.direction_to(player.global_position)
+@onready var player_in_range: bool = false
+
+func _ready():
+	animation_tree.active = true
 
 func _process(delta):
+	player_in_range = $AttackRange.has_overlapping_bodies()
 	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
 	animation_tree.set("parameters/conditions/walk", velocity != Vector2.ZERO)
 
 func _physics_process(delta):
 	direction = global_position.direction_to(player.global_position)
-	if global_position.distance_to(player.global_position) < AGGRO_RANGE and global_position.distance_to(player.global_position) > ATTACK_RANGE:
+	
+	animation_tree["parameters/attack/blend_position"] = direction
+	animation_tree["parameters/idle/blend_position"] = direction
+	animation_tree["parameters/run/blend_position"] = direction
+	animation_tree["parameters/hurt/blend_position"] = direction
+	animation_tree["parameters/death/blend_position"] = direction
+	
+	if global_position.distance_to(player.global_position) < AGGRO_RANGE and not player_in_range:
 		velocity = direction * speed
 		move_and_slide()
 	else:
 		velocity = Vector2.ZERO
 		
-	if direction.x > 0:
-		$Sprite2D.flip_h = false
-	elif direction.x < 0:
-		$Sprite2D.flip_h = true
-	
-	if global_position.distance_to(player.global_position) <= ATTACK_RANGE and randf() < 0.5 * delta:
+#
+	if player_in_range and randf() < ATTACK_CHANCE * delta:
 		attack()
 
 func take_damage(value):
@@ -39,7 +49,7 @@ func take_damage(value):
 	
 	if health <= 0:
 		if not died:
-			player.gain_xp(50)
+			player.gain_xp(XP_VALUE)
 			died = true
 		
 		animation_tree["parameters/conditions/death"] = true
@@ -60,10 +70,6 @@ func be_healed(value):
 	if health > MAX_HEALTH:
 		health = MAX_HEALTH
 
-#func _on_timer_timeout() -> void:
-	#if global_position.distance_to(player.global_position) < ATTACK_RANGE:
-		#attack()
-
 func attack():
 		animation_tree["parameters/conditions/attack"] = true
 		await get_tree().create_timer(0.3).timeout
@@ -72,4 +78,4 @@ func attack():
 
 func _on_attack_body_entered(body):
 	if body.has_method("take_damage"):
-			body.take_damage(20)
+			body.take_damage(DAMAGE_DEALT)

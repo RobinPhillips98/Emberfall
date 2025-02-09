@@ -2,21 +2,23 @@ extends CharacterBody2D
 
 const BASE_SPEED = 200
 const AGGRO_RANGE = 500
-const EVADE_RANGE = 250
+const EVADE_RANGE = AGGRO_RANGE / 2
 const ATTACK_RANGE = EVADE_RANGE + 100
+const ATTACK_CHANCE = .25
 const MAX_HEALTH = 30
+const XP_VALUE = 100
 var health = MAX_HEALTH
 var died: bool = false
 @onready var speed = BASE_SPEED
 @onready var player = get_node("/root/Game/Player")
-@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var animation_tree = $AnimationTree
 @onready var direction = global_position.direction_to(player.global_position)
 	
 func _process(delta):
 	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
 	animation_tree.set("parameters/conditions/walk", velocity != Vector2.ZERO)
 	
-	if global_position.distance_to(player.global_position) > EVADE_RANGE and global_position.distance_to(player.global_position) < ATTACK_RANGE and randf() < 0.25 * delta:
+	if global_position.distance_to(player.global_position) > EVADE_RANGE and global_position.distance_to(player.global_position) < ATTACK_RANGE and randf() < ATTACK_CHANCE * delta:
 		attack()
 
 func _physics_process(delta):
@@ -32,13 +34,11 @@ func _physics_process(delta):
 		direction = global_position.direction_to(player.global_position)
 		velocity = Vector2.ZERO
 		
-	if direction.x > 0:
-		$Sprite2D.flip_h = false
-	elif direction.x < 0:
-		$Sprite2D.flip_h = true
-
-	#if global_position.distance_to(player.global_position) < ATTACK_RANGE and randf() < 0.5 * delta:
-		
+	animation_tree["parameters/attack/blend_position"] = direction
+	animation_tree["parameters/idle/blend_position"] = direction
+	animation_tree["parameters/run/blend_position"] = direction
+	animation_tree["parameters/hurt/blend_position"] = direction
+	animation_tree["parameters/death/blend_position"] = direction
 
 func take_damage(value):
 	health -= value
@@ -48,7 +48,7 @@ func take_damage(value):
 	
 	if health <= 0:
 		if not died:
-			player.gain_xp(100)
+			player.gain_xp(XP_VALUE)
 			died = true
 		
 		animation_tree["parameters/conditions/death"] = true
@@ -57,10 +57,10 @@ func take_damage(value):
 		
 		await animation_tree["parameters/conditions/death"] == false
 		queue_free()
-		const SMOKE_SCENE = preload("res://smoke_explosion/smoke_explosion.tscn")
-		var smoke = SMOKE_SCENE.instantiate()
-		get_parent().add_child(smoke)
-		smoke.global_position = global_position
+		#const SMOKE_SCENE = preload("res://smoke_explosion/smoke_explosion.tscn")
+		#var smoke = SMOKE_SCENE.instantiate()
+		#get_parent().add_child(smoke)
+		#smoke.global_position = global_position
 
 func get_health():
 	return health
@@ -74,6 +74,3 @@ func attack():
 		animation_tree["parameters/conditions/attack"] = true
 		await get_tree().create_timer(0.3).timeout
 		animation_tree["parameters/conditions/attack"] = false
-		
-		await animation_tree["parameters/conditions/attack"] == false
-		$Bow.shoot()
