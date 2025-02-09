@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ot52xq0gc0oi"]
 
 [ext_resource type="Script" path="res://scripts/equipment/bow.gd" id="1_cqgr0"]
-[ext_resource type="Texture2D" uid="uid://bv1hq2eysyvx3" path="res://art/equipment/placeholder-bow-weapon.png" id="2_4rqdb"]
+[ext_resource type="Texture2D" uid="uid://cc0fb4m1kvg1s" path="res://art/equipment/crosshair.png" id="2_444j1"]
 
 [node name="Bow" type="Area2D"]
 collision_layer = 0
@@ -12,8 +12,8 @@ script = ExtResource("1_cqgr0")
 
 [node name="BowSprite" type="Sprite2D" parent="WeaponPivot"]
 position = Vector2(48, 0)
-scale = Vector2(0.027027, 0.028885)
-texture = ExtResource("2_4rqdb")
+scale = Vector2(0.5, 0.537)
+texture = ExtResource("2_444j1")
 
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/BowSprite"]
 unique_name_in_owner = true
