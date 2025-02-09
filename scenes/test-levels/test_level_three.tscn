@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddiaua31wgvvo"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_fdxeo"]
+[ext_resource type="PackedScene" uid="uid://11rpmqf67lxd" path="res://scenes/pine_tree.tscn" id="1_n8kur"]
+[ext_resource type="PackedScene" uid="uid://e78ftuyn1u7l" path="res://scenes/equipment/health_potion_collectible.tscn" id="2_xytfm"]
+[ext_resource type="PackedScene" uid="uid://bulg58ab8ik56" path="res://scenes/enemies/kobold.tscn" id="3_mnnjw"]
+[ext_resource type="PackedScene" uid="uid://d1dw46vj4kwcc" path="res://scenes/enemies/skeleton.tscn" id="4_r2kuy"]
+[ext_resource type="PackedScene" uid="uid://co20ernxnkqri" path="res://scenes/enemies/mage.tscn" id="5_r76br"]
+[ext_resource type="PackedScene" uid="uid://cyspwdctflykh" path="res://scenes/player.tscn" id="7_w5i50"]
+[ext_resource type="PackedScene" uid="uid://dbwsjv3dyybcs" path="res://scenes/level_end.tscn" id="8_8hh45"]
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_fdxeo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1918.0
+offset_bottom = 1084.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PineTree" parent="." instance=ExtResource("1_n8kur")]
+position = Vector2(494, 882)
+
+[node name="PineTree2" parent="." instance=ExtResource("1_n8kur")]
+position = Vector2(259, 349)
+
+[node name="PineTree3" parent="." instance=ExtResource("1_n8kur")]
+position = Vector2(689, 192)
+
+[node name="PineTree4" parent="." instance=ExtResource("1_n8kur")]
+position = Vector2(1448, 277)
+
+[node name="PineTree5" parent="." instance=ExtResource("1_n8kur")]
+position = Vector2(1503, 211)
+
+[node name="PineTree6" parent="." instance=ExtResource("1_n8kur")]
+position = Vector2(1593, 280)
+
+[node name="PineTree7" parent="." instance=ExtResource("1_n8kur")]
+position = Vector2(1339, 736)
+
+[node name="PineTree8" parent="." instance=ExtResource("1_n8kur")]
+position = Vector2(1634, 596)
+
+[node name="health_potion_collectible" parent="." instance=ExtResource("2_xytfm")]
+position = Vector2(1646, 166)
+
+[node name="health_potion_collectible2" parent="." instance=ExtResource("2_xytfm")]
+position = Vector2(1703, 168)
+
+[node name="health_potion_collectible3" parent="." instance=ExtResource("2_xytfm")]
+position = Vector2(1676, 128)
+
+[node name="Kobold" parent="." instance=ExtResource("3_mnnjw")]
+position = Vector2(1302, 560)
+
+[node name="Kobold2" parent="." instance=ExtResource("3_mnnjw")]
+position = Vector2(1435, 419)
+
+[node name="Kobold3" parent="." instance=ExtResource("3_mnnjw")]
+position = Vector2(1229, 822)
+
+[node name="Skeleton" parent="." instance=ExtResource("4_r2kuy")]
+position = Vector2(216, 610)
+
+[node name="Skeleton2" parent="." instance=ExtResource("4_r2kuy")]
+position = Vector2(140, 999)
+
+[node name="Skeleton3" parent="." instance=ExtResource("4_r2kuy")]
+position = Vector2(1031, 908)
+
+[node name="Mage" parent="." instance=ExtResource("5_r76br")]
+position = Vector2(358, 675)
+
+[node name="Player" parent="." instance=ExtResource("7_w5i50")]
+position = Vector2(1830, 96)
+
+[node name="LevelEnd" parent="." instance=ExtResource("8_8hh45")]
+position = Vector2(187, 102)
+scale = Vector2(3.76405, 3.19092)
