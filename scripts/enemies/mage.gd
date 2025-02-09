@@ -2,15 +2,20 @@ extends CharacterBody2D
 
 const BASE_SPEED = 200
 const AGGRO_RANGE = 500
-const EVADE_RANGE = 250
+const EVADE_RANGE = AGGRO_RANGE / 2
 const COMBAT_RANGE = EVADE_RANGE + 100
 const MAX_HEALTH = 30
+const XP_VALUE = 150
+const HEAL_VALUE = 10
 var health = MAX_HEALTH
 var died : bool = false
 @onready var speed = BASE_SPEED
 @onready var player = get_node("/root/Game/Player")
-@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var animation_tree = $AnimationTree
 @onready var direction = global_position.direction_to(player.global_position)
+
+func _ready():
+	animation_tree.active = true
 	
 func _process(delta):
 	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
@@ -29,11 +34,12 @@ func _physics_process(delta):
 	else:
 		direction = global_position.direction_to(player.global_position)
 		velocity = Vector2.ZERO
-		
-	if direction.x > 0:
-		$Sprite2D.flip_h = false
-	elif direction.x < 0:
-		$Sprite2D.flip_h = true
+	
+	animation_tree["parameters/heal/blend_position"] = direction
+	animation_tree["parameters/idle/blend_position"] = direction
+	animation_tree["parameters/run/blend_position"] = direction
+	animation_tree["parameters/hurt/blend_position"] = direction
+	animation_tree["parameters/death/blend_position"] = direction
 
 func take_damage(value):
 	health -= value
@@ -43,7 +49,7 @@ func take_damage(value):
 	
 	if health <= 0:
 		if not died:
-			player.gain_xp(150)
+			player.gain_xp(XP_VALUE)
 			died = true
 		
 		animation_tree["parameters/conditions/death"] = true
@@ -81,4 +87,4 @@ func heal(target):
 		await get_tree().create_timer(0.7).timeout
 		animation_tree["parameters/conditions/heal"] = false
 		if target.has_method("be_healed"):
-			target.be_healed(10)
+			target.be_healed(HEAL_VALUE)
