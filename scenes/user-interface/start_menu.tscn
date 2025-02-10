@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0b5ws0cf8fsl"]
 
-[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_umicg"]
-[ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="2_nmxro"]
-[ext_resource type="Texture2D" uid="uid://dvc2ya38mrltj" path="res://art/discord-emberfall-logo.png" id="3_bmvks"]
-[ext_resource type="AudioStream" uid="uid://cys7ckfml3iyi" path="res://sounds/music/main_menu_theme.mp3" id="4_hui0i"]
-[ext_resource type="FontFile" uid="uid://b6nqk4dcgkctt" path="res://art/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="5_qso8w"]
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_kl40u"]
+[ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="2_3sk2b"]
+[ext_resource type="Texture2D" uid="uid://co4cjig8fgki0" path="res://art/Emberfall-Title.png" id="3_wp5lf"]
+[ext_resource type="AudioStream" uid="uid://cys7ckfml3iyi" path="res://sounds/music/main_menu_theme.mp3" id="4_8mrle"]
+[ext_resource type="FontFile" uid="uid://b6nqk4dcgkctt" path="res://art/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="5_d1igl"]
 
 [node name="StartMenu" type="Node2D"]
-script = ExtResource("1_umicg")
+script = ExtResource("1_kl40u")
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -28,7 +28,7 @@ offset_top = 500.0
 offset_right = 200.0
 offset_bottom = 614.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_nmxro")
+theme_override_fonts/font = ExtResource("2_3sk2b")
 theme_override_font_sizes/font_size = 60
 text = "Start"
 
@@ -41,7 +41,7 @@ offset_top = 700.0
 offset_right = 200.0
 offset_bottom = 814.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_nmxro")
+theme_override_fonts/font = ExtResource("2_3sk2b")
 theme_override_font_sizes/font_size = 60
 text = "How to Play
 "
@@ -55,17 +55,17 @@ offset_top = 900.0
 offset_right = 200.0
 offset_bottom = 1014.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_nmxro")
+theme_override_fonts/font = ExtResource("2_3sk2b")
 theme_override_font_sizes/font_size = 60
 text = "Quit"
 
-[node name="Discord-emberfall-logo" type="Sprite2D" parent="MainMenu"]
+[node name="Emberfall-Title" type="Sprite2D" parent="MainMenu"]
 position = Vector2(965, 200)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_bmvks")
+texture = ExtResource("3_wp5lf")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_hui0i")
+stream = ExtResource("4_8mrle")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
@@ -90,7 +90,7 @@ offset_left = -694.5
 offset_right = 694.5
 offset_bottom = 753.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("5_qso8w")
+theme_override_fonts/font = ExtResource("5_d1igl")
 theme_override_font_sizes/font_size = 90
 text = "
 WASD to move
@@ -119,7 +119,7 @@ offset_right = 214.0
 offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_nmxro")
+theme_override_fonts/font = ExtResource("2_3sk2b")
 theme_override_font_sizes/font_size = 90
 text = "Menu"
 
