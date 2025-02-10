@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://car3o514a0je7"]
+[gd_scene load_steps=5 format=3 uid="uid://car3o514a0je7"]
 
 [ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="1_l2jun"]
+[ext_resource type="FontFile" uid="uid://b6nqk4dcgkctt" path="res://art/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="2_fl6em"]
 [ext_resource type="AudioStream" uid="uid://bf7bqrt4mpe44" path="res://sounds/music/credits.mp3" id="2_vrgcr"]
 [ext_resource type="AudioStream" uid="uid://cfdrxkpyny0pt" path="res://sounds/music/victory.mp3" id="3_24wyx"]
 
@@ -17,24 +18,50 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.513726)
 
-[node name="Label" type="Label" parent="YouWin/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
+[node name="Label" type="Label" parent="YouWin"]
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -386.0
-offset_top = -136.5
 offset_right = 386.0
-offset_bottom = 136.5
+offset_bottom = 273.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_l2jun")
 theme_override_font_sizes/font_size = 200
 text = "YOU WIN!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Credits" type="Label" parent="YouWin"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -511.0
+offset_top = -266.0
+offset_right = 511.0
+offset_bottom = 451.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_fl6em")
+theme_override_font_sizes/font_size = 50
+text = "Project Manager/Programmer
+Robin Phillips
+
+Artist
+Nathan Houston
+
+Level Designers
+Anthony Indelicado
+Darby Sims
+
+Sound Designer
+Anthony Indelicado
+
+Writer
+Darby Sims"
+horizontal_alignment = 1
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_vrgcr")

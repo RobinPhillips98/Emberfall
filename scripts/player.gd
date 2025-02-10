@@ -30,11 +30,20 @@ const ATTACK_STAMINA_COST = 25
 
 func _ready():
 	animation_tree.active = true
+	
+	if PlayerVariables.max_mana > 0:
+		%ManaBar.visible = true
+	
+	%HealthBar.max_value = PlayerVariables.max_health
+	%ManaBar.max_value = PlayerVariables.max_mana
+	%StaminaBar.max_value = PlayerVariables.max_stamina
+	%XPBar.max_value = PlayerVariables.level_up_value
 
 func _process(delta):
 	%HealthBar.value = PlayerVariables.health
 	%ManaBar.value = PlayerVariables.mana
 	%StaminaBar.value = PlayerVariables.stamina
+	%XPBar.value = PlayerVariables.xp
 	
 	if PlayerVariables.stamina < PlayerVariables.max_stamina:
 		PlayerVariables.stamina += PlayerVariables.stamina_regen_rate * delta
