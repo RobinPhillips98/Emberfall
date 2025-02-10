@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvc2ya38mrltj"
-path="res://.godot/imported/discord-emberfall-logo.png-d665642b9ec47622da3ecd9aefa1a540.ctex"
+uid="uid://co4cjig8fgki0"
+path="res://.godot/imported/Emberfall-Title.png-cad1f32bb05c99101916bac8895d3f1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/discord-emberfall-logo.png"
-dest_files=["res://.godot/imported/discord-emberfall-logo.png-d665642b9ec47622da3ecd9aefa1a540.ctex"]
+source_file="res://art/Emberfall-Title.png"
+dest_files=["res://.godot/imported/Emberfall-Title.png-cad1f32bb05c99101916bac8895d3f1e.ctex"]
 
 [params]
 
