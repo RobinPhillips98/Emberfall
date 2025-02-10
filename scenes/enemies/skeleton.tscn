@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://d1dw46vj4kwcc"]
 
 [ext_resource type="Script" path="res://scripts/enemies/skeleton.gd" id="1_qy3cl"]
-[ext_resource type="Texture2D" uid="uid://kslafu6jv4f" path="res://art/enemies/placeholder-skeleton-spritesheet.png" id="2_ppevj"]
+[ext_resource type="Texture2D" uid="uid://kslafu6jv4f" path="res://art/enemies/skeleton-spritesheet.png" id="2_ppevj"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://criyrsysknauf" path="res://enemy_base_animation_tree.tres" id="3_ii4ea"]
 [ext_resource type="PackedScene" uid="uid://c2mfgig6d02n6" path="res://scenes/enemies/skeleton-bow.tscn" id="3_y344s"]
 [ext_resource type="AudioStream" uid="uid://bmqi1csu7k2l0" path="res://sounds/sound-effects/enemies/death-sound.mp3" id="5_cf2rl"]
