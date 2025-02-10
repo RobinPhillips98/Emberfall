@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cyspwdctflykh"]
+[gd_scene load_steps=63 format=3 uid="uid://cyspwdctflykh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xsdsg"]
 [ext_resource type="Texture2D" uid="uid://df4xbtl7qxmr6" path="res://art/characters/placeholder-player-spritesheet.png" id="2_vadgu"]
@@ -554,6 +554,20 @@ bg_color = Color(0.623529, 0.866667, 0.317647, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxjma"]
 bg_color = Color(0, 0.478431, 0.764706, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfgmn"]
+bg_color = Color(0.152941, 0.168627, 0.188235, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77jwr"]
+bg_color = Color(0.423529, 0.172549, 0.854902, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oopam"]
 size = Vector2(105, 46)
 
@@ -632,6 +646,23 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_mxjma")
 max_value = 0.0
 show_percentage = false
 
+[node name="XPBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -301.0
+offset_top = 414.0
+offset_right = 304.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_cfgmn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_77jwr")
+max_value = 500.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 29)
 
@@ -669,6 +700,7 @@ position = Vector2(2, -8)
 
 [node name="XPLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
