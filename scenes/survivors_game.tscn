@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0tx21fbanvl5"]
+[gd_scene load_steps=8 format=3 uid="uid://b0tx21fbanvl5"]
 
 [ext_resource type="PackedScene" uid="uid://cyspwdctflykh" path="res://scenes/player.tscn" id="1_i7wap"]
 [ext_resource type="Script" path="res://scripts/survivors_game.gd" id="1_wbtww"]
-[ext_resource type="PackedScene" uid="uid://11rpmqf67lxd" path="res://scenes/pine_tree.tscn" id="2_lljse"]
 [ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="4_27fyd"]
 [ext_resource type="PackedScene" uid="uid://e78ftuyn1u7l" path="res://scenes/equipment/health_potion_collectible.tscn" id="4_mpemo"]
 [ext_resource type="PackedScene" uid="uid://bulg58ab8ik56" path="res://scenes/enemies/kobold.tscn" id="5_ep1aq"]
@@ -23,30 +22,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_i7wap")]
 position = Vector2(942, 558)
-
-[node name="PineTree" parent="." instance=ExtResource("2_lljse")]
-position = Vector2(494, 882)
-
-[node name="PineTree2" parent="." instance=ExtResource("2_lljse")]
-position = Vector2(259, 349)
-
-[node name="PineTree3" parent="." instance=ExtResource("2_lljse")]
-position = Vector2(689, 192)
-
-[node name="PineTree4" parent="." instance=ExtResource("2_lljse")]
-position = Vector2(1448, 277)
-
-[node name="PineTree5" parent="." instance=ExtResource("2_lljse")]
-position = Vector2(1503, 211)
-
-[node name="PineTree6" parent="." instance=ExtResource("2_lljse")]
-position = Vector2(1593, 280)
-
-[node name="PineTree7" parent="." instance=ExtResource("2_lljse")]
-position = Vector2(1339, 736)
-
-[node name="PineTree8" parent="." instance=ExtResource("2_lljse")]
-position = Vector2(1634, 596)
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

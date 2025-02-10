@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://e78ftuyn1u7l"]
 
 [ext_resource type="Script" path="res://scripts/equipment/health_potion_collectible.gd" id="1_dt1yh"]
-[ext_resource type="Texture2D" uid="uid://c8bxkeoya4sjd" path="res://art/equipment/placeholder_health_potion.png" id="2_lufsw"]
+[ext_resource type="Texture2D" uid="uid://c8bxkeoya4sjd" path="res://art/equipment/health_potion.png" id="2_lufsw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8koj"]
 radius = 2.5

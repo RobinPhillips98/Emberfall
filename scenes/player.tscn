@@ -1,10 +1,10 @@
 [gd_scene load_steps=63 format=3 uid="uid://cyspwdctflykh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xsdsg"]
-[ext_resource type="Texture2D" uid="uid://df4xbtl7qxmr6" path="res://art/characters/placeholder-player-spritesheet.png" id="2_vadgu"]
+[ext_resource type="Texture2D" uid="uid://df4xbtl7qxmr6" path="res://art/characters/temporary-player-spritesheet.png" id="2_vadgu"]
 [ext_resource type="PackedScene" uid="uid://ot52xq0gc0oi" path="res://scenes/equipment/bow.tscn" id="3_ulrlk"]
 [ext_resource type="FontFile" uid="uid://b6nqk4dcgkctt" path="res://art/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="4_24qkn"]
-[ext_resource type="Texture2D" uid="uid://c8bxkeoya4sjd" path="res://art/equipment/placeholder_health_potion.png" id="5_337tl"]
+[ext_resource type="Texture2D" uid="uid://c8bxkeoya4sjd" path="res://art/equipment/health_potion.png" id="5_337tl"]
 [ext_resource type="AudioStream" uid="uid://bcumokq5npyo4" path="res://sounds/sound-effects/Player/sword-swing.wav" id="6_reilb"]
 [ext_resource type="AudioStream" uid="uid://r5hm7oa4ps2s" path="res://sounds/sound-effects/Player/sword-hit .mp3" id="7_swrfr"]
 [ext_resource type="AudioStream" uid="uid://c32mtopbqjync" path="res://sounds/sound-effects/Player/level-up.mp3" id="8_1y8lj"]
