@@ -1,0 +1,129 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0b5ws0cf8fsl"]
+
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_kl40u"]
+[ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="2_3sk2b"]
+[ext_resource type="Texture2D" uid="uid://co4cjig8fgki0" path="res://art/Emberfall-Title.png" id="3_wp5lf"]
+[ext_resource type="AudioStream" uid="uid://cys7ckfml3iyi" path="res://sounds/music/main_menu_theme.mp3" id="4_8mrle"]
+[ext_resource type="FontFile" uid="uid://b6nqk4dcgkctt" path="res://art/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="5_d1igl"]
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_kl40u")
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="MainMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -186.0
+offset_top = 500.0
+offset_right = 200.0
+offset_bottom = 614.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_3sk2b")
+theme_override_font_sizes/font_size = 60
+text = "Start"
+
+[node name="HowToPlay" type="Button" parent="MainMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -186.0
+offset_top = 700.0
+offset_right = 200.0
+offset_bottom = 814.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_3sk2b")
+theme_override_font_sizes/font_size = 60
+text = "How to Play
+"
+
+[node name="QuitButton" type="Button" parent="MainMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -186.0
+offset_top = 900.0
+offset_right = 200.0
+offset_bottom = 1014.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_3sk2b")
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[node name="Emberfall-Title" type="Sprite2D" parent="MainMenu"]
+position = Vector2(965, 200)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_wp5lf")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8mrle")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[node name="HowToPlay" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="HowToPlay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="HowToPlay"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -694.5
+offset_right = 694.5
+offset_bottom = 753.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_d1igl")
+theme_override_font_sizes/font_size = 90
+text = "
+WASD to move
+
+Mouse to aim
+
+LMB for melee attack
+
+RMB for ranged attack
+
+Press 1 to take potion
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="Button" parent="HowToPlay"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -214.0
+offset_top = -169.0
+offset_right = 214.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_3sk2b")
+theme_override_font_sizes/font_size = 90
+text = "Menu"
+
+[connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/HowToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="MainMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HowToPlay/MenuButton" to="." method="_on_menu_button_pressed"]
