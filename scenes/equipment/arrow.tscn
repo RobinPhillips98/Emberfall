@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbhyfqxoeql16"]
 
 [ext_resource type="Script" path="res://scripts/equipment/arrow.gd" id="1_tnwch"]
-[ext_resource type="Texture2D" uid="uid://o2n0v3j4wrbh" path="res://art/equipment/placeholder-arrow.png" id="2_17rhu"]
+[ext_resource type="Texture2D" uid="uid://o2n0v3j4wrbh" path="res://art/equipment/arrow.png" id="2_17rhu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ax0ay"]
 size = Vector2(32, 10)
