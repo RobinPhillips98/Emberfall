@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3mw8cam5p6ae"]
 
 [ext_resource type="TileSet" uid="uid://da2j3r44u8jtj" path="res://resources/tilesets/level_two_tileset.tres" id="1_lcfvl"]
-[ext_resource type="AudioStream" uid="uid://btspc1sh101es" path="res://sounds/music/splintered_halls_background.mp3" id="2_hkyww"]
+[ext_resource type="AudioStream" uid="uid://b5miwiciejo23" path="res://sounds/music/overgrown_ruins_background.mp3" id="2_vk6kb"]
 [ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="3_hcxem"]
 
 [node name="LevelTwo" type="Node2D"]
@@ -18,7 +18,8 @@ tile_set = ExtResource("1_lcfvl")
 tile_set = ExtResource("1_lcfvl")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_hkyww")
+stream = ExtResource("2_vk6kb")
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
