@@ -12,6 +12,38 @@
 [ext_resource type="AudioStream" uid="uid://d3gbooup5tvmg" path="res://sounds/sound-effects/game-over-sound.mp3" id="11_8famx"]
 [ext_resource type="AudioStream" uid="uid://c5smwd53xkdy4" path="res://sounds/sound-effects/Player/player-hit.wav" id="11_vomal"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4symm"]
+bg_color = Color(0.152941, 0.168627, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4lf4"]
+bg_color = Color(0.768627, 0.113725, 0.239216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abq2t"]
+bg_color = Color(0.623529, 0.866667, 0.317647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxjma"]
+bg_color = Color(0, 0.478431, 0.764706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfgmn"]
+bg_color = Color(0.152941, 0.168627, 0.188235, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77jwr"]
+bg_color = Color(0.423529, 0.172549, 0.854902, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh7ls"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="Animation" id="Animation_42jkp"]
 length = 0.001
 tracks/0/type = "value"
@@ -542,47 +574,112 @@ graph_offset = Vector2(-22, -79)
 radius = 22.0
 height = 82.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4symm"]
-bg_color = Color(0.152941, 0.168627, 0.188235, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4lf4"]
-bg_color = Color(0.768627, 0.113725, 0.239216, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abq2t"]
-bg_color = Color(0.623529, 0.866667, 0.317647, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxjma"]
-bg_color = Color(0, 0.478431, 0.764706, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfgmn"]
-bg_color = Color(0.152941, 0.168627, 0.188235, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77jwr"]
-bg_color = Color(0.423529, 0.172549, 0.854902, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oopam"]
 size = Vector2(105, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5roio"]
 size = Vector2(40, 102)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh7ls"]
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 9
 collision_mask = 3
 script = ExtResource("1_xsdsg")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -962.0
+offset_top = -513.0
+offset_right = -733.0
+offset_bottom = -486.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4symm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_h4lf4")
+value = 100.0
+show_percentage = false
+
+[node name="StaminaBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -962.0
+offset_top = -486.0
+offset_right = -733.0
+offset_bottom = -459.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4symm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_abq2t")
+max_value = 50.0
+value = 50.0
+show_percentage = false
+
+[node name="ManaBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -960.0
+offset_top = -459.0
+offset_right = -731.0
+offset_bottom = -432.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4symm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mxjma")
+max_value = 0.0
+show_percentage = false
+
+[node name="XPBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -303.0
+offset_top = 412.0
+offset_right = 302.0
+offset_bottom = 448.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_cfgmn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_77jwr")
+max_value = 500.0
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -56.0
+offset_top = 462.0
+offset_right = 57.0
+offset_bottom = 568.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kh7ls")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_337tl")
+
+[node name="HealthPotionNum" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_24qkn")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 14.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_24qkn")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Eldran" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -610,58 +707,6 @@ parameters/run/blend_position = Vector2(-0.160347, 0.278997)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_iw2cf")
-
-[node name="HealthBar" type="ProgressBar" parent="."]
-unique_name_in_owner = true
-offset_left = -960.0
-offset_top = -511.0
-offset_right = -731.0
-offset_bottom = -484.0
-theme_override_styles/background = SubResource("StyleBoxFlat_4symm")
-theme_override_styles/fill = SubResource("StyleBoxFlat_h4lf4")
-value = 100.0
-show_percentage = false
-
-[node name="StaminaBar" type="ProgressBar" parent="."]
-unique_name_in_owner = true
-offset_left = -960.0
-offset_top = -484.0
-offset_right = -731.0
-offset_bottom = -457.0
-theme_override_styles/background = SubResource("StyleBoxFlat_4symm")
-theme_override_styles/fill = SubResource("StyleBoxFlat_abq2t")
-max_value = 50.0
-value = 50.0
-show_percentage = false
-
-[node name="ManaBar" type="ProgressBar" parent="."]
-unique_name_in_owner = true
-visible = false
-offset_left = -961.0
-offset_top = -456.0
-offset_right = -732.0
-offset_bottom = -429.0
-theme_override_styles/background = SubResource("StyleBoxFlat_4symm")
-theme_override_styles/fill = SubResource("StyleBoxFlat_mxjma")
-max_value = 0.0
-show_percentage = false
-
-[node name="XPBar" type="ProgressBar" parent="."]
-unique_name_in_owner = true
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -301.0
-offset_top = 414.0
-offset_right = 304.0
-offset_bottom = 450.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_cfgmn")
-theme_override_styles/fill = SubResource("StyleBoxFlat_77jwr")
-max_value = 500.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 29)
@@ -716,51 +761,7 @@ text = "XP: 0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = -54.0
-offset_top = 464.0
-offset_right = 59.0
-offset_bottom = 570.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_kh7ls")
-
-[node name="TextureRect" type="TextureRect" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_337tl")
-
-[node name="HealthPotionNum" type="Label" parent="Panel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -19.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_24qkn")
-theme_override_font_sizes/font_size = 30
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_right = 14.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("4_24qkn")
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Audio" type="Node" parent="."]
+[node name="Audio" type="Node2D" parent="."]
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("6_reilb")

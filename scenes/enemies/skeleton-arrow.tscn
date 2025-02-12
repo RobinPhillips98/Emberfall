@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbhyfqxoeql16"]
+[gd_scene load_steps=4 format=3 uid="uid://d33g1afhmq71c"]
 
-[ext_resource type="Script" path="res://scripts/equipment/arrow.gd" id="1_tnwch"]
-[ext_resource type="Texture2D" uid="uid://o2n0v3j4wrbh" path="res://art/equipment/arrow.png" id="2_17rhu"]
+[ext_resource type="Script" path="res://scripts/equipment/arrow.gd" id="1_4g6is"]
+[ext_resource type="Texture2D" uid="uid://o2n0v3j4wrbh" path="res://art/equipment/arrow.png" id="2_htggr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ax0ay"]
 size = Vector2(32, 10)
@@ -10,13 +10,12 @@ size = Vector2(32, 10)
 top_level = true
 scale = Vector2(2, 2)
 collision_layer = 0
-collision_mask = 3
-script = ExtResource("1_tnwch")
+script = ExtResource("1_4g6is")
 
 [node name="Projectile" type="Sprite2D" parent="."]
 position = Vector2(15, 1)
 scale = Vector2(0.104046, 0.0660194)
-texture = ExtResource("2_17rhu")
+texture = ExtResource("2_htggr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11, 1)

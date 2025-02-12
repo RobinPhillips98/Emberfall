@@ -3,30 +3,8 @@ extends CharacterBody2D
 signal health_depleted
 @onready var animation_tree = $AnimationTree
 
-##Base numbers
-#const BASE_SPEED = 600
-#var level_up_value = 1000
-#var max_health: float = 100.0
-#var max_mana: float = 0.0
-#var max_stamina: float = 50.0
-#
-## Attributes
-#var health : float = max_health
-#var mana: float = max_mana
-#var stamina: float = max_stamina
-#var stamina_regen_rate: float = 25
-#var speed = BASE_SPEED
-#
-##Equipment
-#var money: int = 0
-#var health_potions: int = 0
-#var mana_potions: int = 0
-#
-##Experience and Level
 const MAX_LEVEL: int = 4
 const ATTACK_STAMINA_COST = 25
-#var xp: int = 0
-#var level: int = 1
 
 func _ready():
 	animation_tree.active = true
@@ -38,6 +16,9 @@ func _ready():
 	%ManaBar.max_value = PlayerVariables.max_mana
 	%StaminaBar.max_value = PlayerVariables.max_stamina
 	%XPBar.max_value = PlayerVariables.level_up_value
+	%HealthBar.size.x = PlayerVariables.max_health * 2
+	%StaminaBar.size.x = PlayerVariables.max_stamina * 3
+	%ManaBar.size.x = PlayerVariables.max_mana * 3
 
 func _process(delta):
 	%HealthBar.value = PlayerVariables.health
@@ -161,20 +142,25 @@ func level_up():
 	gain_xp(-PlayerVariables.level_up_value)
 	PlayerVariables.level += 1
 	PlayerVariables.level_up_value += 500
+	%XPBar.max_value = PlayerVariables.level_up_value
 	
 	PlayerVariables.max_health += 100
 	%HealthBar.max_value = PlayerVariables.max_health
 	PlayerVariables.health += 100
+	%HealthBar.size.x = PlayerVariables.max_health * 2
 	
 	PlayerVariables.max_mana += 50.0
 	%ManaBar.max_value = PlayerVariables.max_mana
 	PlayerVariables.mana +=50
+	%ManaBar.size.x = PlayerVariables.max_mana * 3
 	if %ManaBar.visible == false:
 		%ManaBar.visible = true
 	
 	PlayerVariables.max_stamina += 25
 	%StaminaBar.max_value = PlayerVariables.max_stamina
 	PlayerVariables.stamina += 25
+	%StaminaBar.size.x = PlayerVariables.max_stamina * 3
+	
 	
 	$Audio/LevelUp.play()
 
