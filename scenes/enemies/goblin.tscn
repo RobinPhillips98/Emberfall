@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://bulg58ab8ik56"]
 
-[ext_resource type="Script" path="res://scripts/enemies/kobold.gd" id="1_3y67v"]
+[ext_resource type="Script" path="res://scripts/enemies/goblin.gd" id="1_3y67v"]
 [ext_resource type="Texture2D" uid="uid://cjfnhhorjg2s1" path="res://art/enemies/goblin-spritesheet.png" id="2_hl4o3"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://criyrsysknauf" path="res://enemy_base_animation_tree.tres" id="3_qf2l1"]
 [ext_resource type="AudioStream" uid="uid://bmqi1csu7k2l0" path="res://sounds/sound-effects/enemies/death-sound.mp3" id="4_xcyvf"]
@@ -473,7 +473,7 @@ size = Vector2(18.1418, 28.1305)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pijh1"]
 size = Vector2(34.3992, 8.29185)
 
-[node name="Kobold" type="CharacterBody2D"]
+[node name="Goblin" type="CharacterBody2D"]
 scale = Vector2(2.5, 2.764)
 collision_layer = 2
 collision_mask = 3
@@ -535,6 +535,8 @@ disabled = true
 debug_color = Color(0.62004, 0.53447, 3.85046e-07, 0.42)
 
 [node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
 
 [node name="LeftAttackRange" type="CollisionShape2D" parent="AttackRange"]
 position = Vector2(-19.3245, -2.09482)

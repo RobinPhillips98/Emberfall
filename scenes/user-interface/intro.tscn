@@ -41,6 +41,7 @@ text = "Next"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_fneab")
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
@@ -64,7 +65,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_2ahp5")
 theme_override_font_sizes/font_size = 100
-text = "Long ago, the dragon Vorrak the Withering was sealed away in the depths of the Celestial Keep, a fortress built atop an ancient, pulsing leyline of magic."
+text = "Long ago, the dragon Vorrak the Withering was sealed away in the depths of the Sunless Citadel, a fortress built atop an ancient, pulsing leyline of magic."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
