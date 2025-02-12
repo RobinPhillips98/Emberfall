@@ -11,11 +11,11 @@ func next_level():
 		1:
 			get_tree().change_scene_to_file("res://scenes/user-interface/intro.tscn")
 		2:
-			get_tree().change_scene_to_file("res://scenes/test-levels/test_level_one.tscn")
+			get_tree().change_scene_to_file("res://scenes/levels/level_one.tscn")
 		3:
 			get_tree().change_scene_to_file("res://scenes/test-levels/test_level_two.tscn")
 		4:
-			get_tree().change_scene_to_file("res://scenes/test-levels/test_level_three.tscn")
+			get_tree().change_scene_to_file("res://scenes/levels/level_three.tscn")
 		5:
 			get_tree().change_scene_to_file("res://scenes/user-interface/end_scene.tscn")
 	level_count += 1
