@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=43 format=3 uid="uid://criyrsysknauf"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=43 format=3 uid="uid://bji0hqrk5wupl"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ghmxj"]
 animation = &"attack_left"
