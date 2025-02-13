@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b84goqbjnmtum"
-path="res://.godot/imported/firebolt.png-5ce04824ae5d82b1d7696f8db00729ca.ctex"
+uid="uid://dyjkrlrg2odqs"
+path="res://.godot/imported/skeleton-arrow.png-9d3726e99b0b69f24c3e7757cfb642fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/fireball/firebolt.png"
-dest_files=["res://.godot/imported/firebolt.png-5ce04824ae5d82b1d7696f8db00729ca.ctex"]
+source_file="res://art/equipment/skeleton-arrow.png"
+dest_files=["res://.godot/imported/skeleton-arrow.png-9d3726e99b0b69f24c3e7757cfb642fc.ctex"]
 
 [params]
 
