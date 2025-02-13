@@ -42,16 +42,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -511.0
+offset_left = -504.0
 offset_top = -765.0
-offset_right = 511.0
+offset_right = 518.0
 offset_bottom = -168.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_fl6em")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Project Manager/Programmer
 Robin Phillips
+
+Co-Manager
+Nathan Houston
 
 Artist
 Nathan Houston
@@ -59,6 +62,7 @@ Nathan Houston
 Level Designers
 Anthony Indelicado
 Darby Sims
+Robin Phillips
 
 Sound Designer
 Anthony Indelicado
@@ -130,24 +134,23 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.513726)
 
 [node name="Credits" type="Label" parent="ArtCredits"]
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -900.0
-offset_top = -278.5
-offset_right = 900.0
-offset_bottom = 278.5
+offset_left = -905.0
+offset_top = 103.0
+offset_right = 895.0
+offset_bottom = 848.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_fl6em")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 40
 text = "Main Title - Nathan Houston
 
-Player - 
+Potions - Nathan Houston
 
-Potions - Bonsaiheldin - https://opengameart.org/users/bonsaiheldin
+Arrows - Nathan Houston
+
+Player - Pixel_Poem - https://pixel-poem.itch.io/
 
 Enemies - Foozle - https://foozlecc.itch.io/
 
@@ -155,11 +158,11 @@ Tile Sets - Szadi Art - https://szadiart.itch.io/
 
 Crosshair - Verzatiledev - https://verzatiledev.itch.io
 
-Arrow - BlankCanvasStudios - https://blankcanvasstudios.newgrounds.com/
-
 Fireball Projecticle - NYKCNC - https://nyknck.itch.io/
 
-Fireball Explosion - Ansimuz - https://ansimuz.itch.io/"
+Fireball Explosion - Ansimuz - https://ansimuz.itch.io/
+
+(Fireball colors edited by Nathan Houston)"
 horizontal_alignment = 1
 
 [node name="Back" type="Button" parent="ArtCredits"]
