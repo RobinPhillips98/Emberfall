@@ -14,7 +14,6 @@ var stamina_regen_rate: float = 25
 var speed = 600
 
 #Equipment
-var money: int = 0
 var health_potions: int = 0
 var mana_potions: int = 0
 

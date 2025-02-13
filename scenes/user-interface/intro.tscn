@@ -65,7 +65,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_2ahp5")
 theme_override_font_sizes/font_size = 100
-text = "Long ago, the dragon Vorrak the Withering was sealed away in the depths of the Sunless Citadel, a fortress built atop an ancient, pulsing leyline of magic."
+text = "Long ago, the dragon Vorrak the Withering was sealed away in the depths of the Sunless Vault, a fortress built atop an ancient, pulsing leyline of magic."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -118,7 +118,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_2ahp5")
 theme_override_font_sizes/font_size = 75
-text = "You, Edran-The Last Ember, are the only surviving warrior of the Celestial Order, a group sworn to keep Vorrak imprisoned. Armed with the lost knowledge of your ancestors, you must descend the Keep's dungeons, vanquish the corrupted creatures that now roam its halls, and face Vorrak before he fully awakens.
+text = "You, Edran-The Last Ember, are the only surviving warrior of the Celestial Order, a group sworn to keep Vorrak imprisoned. Armed with the lost knowledge of your ancestors, you must descend the Vault's dungeons, vanquish the corrupted creatures that now roam its halls, and face Vorrak before he fully awakens.
 "
 horizontal_alignment = 1
 vertical_alignment = 1

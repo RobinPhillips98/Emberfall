@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://ddiaua31wgvvo"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_fdxeo"]
-[ext_resource type="PackedScene" uid="uid://e78ftuyn1u7l" path="res://scenes/equipment/health_potion_collectible.tscn" id="2_xytfm"]
+[ext_resource type="PackedScene" uid="uid://e78ftuyn1u7l" path="res://scenes/equipment/health_potion.tscn" id="2_xytfm"]
 [ext_resource type="PackedScene" uid="uid://bulg58ab8ik56" path="res://scenes/enemies/goblin.tscn" id="3_mnnjw"]
 [ext_resource type="PackedScene" uid="uid://d1dw46vj4kwcc" path="res://scenes/enemies/skeleton.tscn" id="4_r2kuy"]
 [ext_resource type="PackedScene" uid="uid://co20ernxnkqri" path="res://scenes/enemies/mage.tscn" id="5_r76br"]

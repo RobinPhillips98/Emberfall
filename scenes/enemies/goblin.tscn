@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/enemies/goblin.gd" id="1_3y67v"]
 [ext_resource type="Texture2D" uid="uid://cjfnhhorjg2s1" path="res://art/enemies/goblin-spritesheet.png" id="2_hl4o3"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://criyrsysknauf" path="res://enemy_base_animation_tree.tres" id="3_qf2l1"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://bji0hqrk5wupl" path="res://enemy_base_animation_tree.tres" id="3_qf2l1"]
 [ext_resource type="AudioStream" uid="uid://bmqi1csu7k2l0" path="res://sounds/sound-effects/enemies/death-sound.mp3" id="4_xcyvf"]
 
 [sub_resource type="Animation" id="Animation_rjb6r"]
