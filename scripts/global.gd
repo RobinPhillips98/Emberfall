@@ -5,6 +5,8 @@ var level_count: int = 1
 func game_over():
 	get_node("/root/Game/GameOver").visible = true
 	get_tree().paused = true
+	await get_tree().create_timer(10).timeout
+	get_tree().quit(0)
 
 func next_level():
 	match level_count:
@@ -13,7 +15,7 @@ func next_level():
 		2:
 			get_tree().change_scene_to_file("res://scenes/levels/level_one.tscn")
 		3:
-			get_tree().change_scene_to_file("res://scenes/test-levels/test_level_two.tscn")
+			get_tree().change_scene_to_file("res://scenes/levels/level_two.tscn")
 		4:
 			get_tree().change_scene_to_file("res://scenes/levels/level_three.tscn")
 		5:

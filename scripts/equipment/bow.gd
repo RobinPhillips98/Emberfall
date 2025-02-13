@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var player = get_node("/root/Game/Player")
-const STAMINA_COST = 50
+const STAMINA_COST = 25
 const MANA_COST = 25
 
 func _physics_process(delta):
@@ -41,3 +41,4 @@ func fireball():
 	new_fireball.global_position = %ShootingPoint.global_position
 	new_fireball.global_rotation = %ShootingPoint.global_rotation
 	%ShootingPoint.add_child(new_fireball)
+	$Boom.play()

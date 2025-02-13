@@ -78,7 +78,7 @@ config/name="Emberfall"
 run/main_scene="res://scenes/user-interface/start_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://art/Logo-full.png"
-config/windows_native_icon="res://art/Logo-256.ico"
+config/windows_native_icon="res://art/Logo.ico"
 
 [autoload]
 
