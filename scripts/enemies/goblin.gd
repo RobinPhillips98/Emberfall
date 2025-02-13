@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const BASE_SPEED = 300
 const AGGRO_RANGE = 400
-const MAX_HEALTH = 30
+const MAX_HEALTH = 40
 const DAMAGE_DEALT = 20
 const ATTACK_CHANCE = 0.75
 const XP_VALUE = 50
