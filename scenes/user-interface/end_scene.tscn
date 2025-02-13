@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://car3o514a0je7"]
+[gd_scene load_steps=6 format=3 uid="uid://car3o514a0je7"]
 
+[ext_resource type="Script" path="res://scripts/user-interface/end_scene.gd" id="1_fosqh"]
 [ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="1_l2jun"]
 [ext_resource type="FontFile" uid="uid://b6nqk4dcgkctt" path="res://art/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="2_fl6em"]
 [ext_resource type="AudioStream" uid="uid://bf7bqrt4mpe44" path="res://sounds/music/credits.mp3" id="2_vrgcr"]
 [ext_resource type="AudioStream" uid="uid://cfdrxkpyny0pt" path="res://sounds/music/victory.mp3" id="3_24wyx"]
 
-[node name="EndScene" type="Node"]
+[node name="EndScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fosqh")
 
 [node name="YouWin" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -33,19 +37,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Credits" type="Label" parent="YouWin"]
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = -511.0
-offset_top = -266.0
+offset_top = -765.0
 offset_right = 511.0
-offset_bottom = 451.0
+offset_bottom = -168.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_fl6em")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = "Project Manager/Programmer
 Robin Phillips
 
@@ -63,13 +67,120 @@ Writer
 Darby Sims"
 horizontal_alignment = 1
 
+[node name="Score" type="Label" parent="YouWin"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -206.5
+offset_top = 239.0
+offset_right = 206.5
+offset_bottom = 276.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_fl6em")
+theme_override_font_sizes/font_size = 40
+text = "TOTAL XP = "
+
+[node name="ArtCreditsButton" type="Button" parent="YouWin"]
+offset_left = 53.0
+offset_top = 917.0
+offset_right = 458.0
+offset_bottom = 1035.0
+theme_override_fonts/font = ExtResource("1_l2jun")
+theme_override_font_sizes/font_size = 100
+text = "Art Credits"
+
+[node name="Quit" type="Button" parent="YouWin"]
+offset_left = 1438.0
+offset_top = 917.0
+offset_right = 1843.0
+offset_bottom = 1035.0
+theme_override_fonts/font = ExtResource("1_l2jun")
+theme_override_font_sizes/font_size = 100
+text = "Quit
+"
+
+[node name="Label2" type="Label" parent="YouWin"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -219.0
+offset_top = -137.0
+offset_right = 219.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_l2jun")
+theme_override_font_sizes/font_size = 75
+text = "To be continued..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArtCredits" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="ArtCredits"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.513726)
+
+[node name="Credits" type="Label" parent="ArtCredits"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -900.0
+offset_top = -278.5
+offset_right = 900.0
+offset_bottom = 278.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_fl6em")
+theme_override_font_sizes/font_size = 35
+text = "Main Title - Nathan Houston
+
+Player - 
+
+Potions - Bonsaiheldin - https://opengameart.org/users/bonsaiheldin
+
+Enemies - Foozle - https://foozlecc.itch.io/
+
+Tile Sets - Szadi Art - https://szadiart.itch.io/
+
+Crosshair - Verzatiledev - https://verzatiledev.itch.io
+
+Arrow - BlankCanvasStudios - https://blankcanvasstudios.newgrounds.com/
+
+Fireball Projecticle - NYKCNC - https://nyknck.itch.io/
+
+Fireball Explosion - Ansimuz - https://ansimuz.itch.io/"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="ArtCredits"]
+offset_left = 53.0
+offset_top = 917.0
+offset_right = 458.0
+offset_bottom = 1035.0
+theme_override_fonts/font = ExtResource("1_l2jun")
+theme_override_font_sizes/font_size = 100
+text = "Back"
+
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_vrgcr")
 volume_db = -10.0
-autoplay = true
 parameters/looping = true
 
 [node name="Victory" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_24wyx")
 volume_db = -10.0
 autoplay = true
+
+[connection signal="pressed" from="YouWin/ArtCreditsButton" to="." method="_on_art_credits_button_pressed"]
+[connection signal="pressed" from="YouWin/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="ArtCredits/Back" to="." method="_on_back_pressed"]

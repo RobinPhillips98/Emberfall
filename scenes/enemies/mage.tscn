@@ -651,7 +651,7 @@ shape = SubResource("CircleShape2D_68lk1")
 debug_color = Color(0, 0.64633, 0.239646, 0.42)
 
 [node name="HealTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 30.0
 autostart = true
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
