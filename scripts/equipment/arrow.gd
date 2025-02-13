@@ -1,10 +1,10 @@
 extends Area2D
 
 var travelled_distance = 0
+const SPEED = 1000
+const RANGE = 1200
 
 func _physics_process(delta):
-	const SPEED = 1000
-	const RANGE = 1200
 	
 	var direction = Vector2.RIGHT.rotated(rotation)
 	position += direction * SPEED * delta
