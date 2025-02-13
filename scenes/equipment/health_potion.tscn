@@ -1,26 +1,27 @@
 [gd_scene load_steps=4 format=3 uid="uid://e78ftuyn1u7l"]
 
 [ext_resource type="Script" path="res://scripts/equipment/health_potion.gd" id="1_dt1yh"]
-[ext_resource type="Texture2D" uid="uid://c8bxkeoya4sjd" path="res://art/equipment/health_potion.png" id="2_lufsw"]
+[ext_resource type="Texture2D" uid="uid://2k6iv72fiung" path="res://art/equipment/health_potion.png" id="2_l53ng"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8koj"]
-radius = 2.5
-height = 7.25
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r110"]
+size = Vector2(5.6, 6.2)
 
 [node name="HealthPotion" type="StaticBody2D"]
-position = Vector2(0, -15)
+position = Vector2(0, -16)
 scale = Vector2(1.25, 1.25)
 script = ExtResource("1_dt1yh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("2_lufsw")
+position = Vector2(-2.38419e-07, 4.76837e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_l53ng")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.2)
 scale = Vector2(2, 2)
-shape = SubResource("CapsuleShape2D_p8koj")
+shape = SubResource("RectangleShape2D_5r110")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
