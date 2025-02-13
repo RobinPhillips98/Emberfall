@@ -1,15 +1,17 @@
-[gd_scene load_steps=9 format=4 uid="uid://dkxkx5v1feray"]
+[gd_scene load_steps=10 format=4 uid="uid://dkxkx5v1feray"]
 
 [ext_resource type="TileSet" uid="uid://w8x1dccgdbr3" path="res://resources/tilesets/level_one_tileset.tres" id="1_dfuc4"]
 [ext_resource type="TileSet" uid="uid://da2j3r44u8jtj" path="res://resources/tilesets/level_two_tileset.tres" id="1_euwyw"]
+[ext_resource type="Script" path="res://scripts/levels/level_one.gd" id="1_yik8y"]
 [ext_resource type="AudioStream" uid="uid://btspc1sh101es" path="res://sounds/music/splintered_halls_background.mp3" id="2_s80c5"]
 [ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="3_0y0pw"]
 [ext_resource type="PackedScene" uid="uid://bulg58ab8ik56" path="res://scenes/enemies/goblin.tscn" id="4_2u1rx"]
-[ext_resource type="PackedScene" uid="uid://e78ftuyn1u7l" path="res://scenes/equipment/health_potion_collectible.tscn" id="5_a2gi4"]
+[ext_resource type="PackedScene" uid="uid://e78ftuyn1u7l" path="res://scenes/equipment/health_potion.tscn" id="5_a2gi4"]
 [ext_resource type="PackedScene" uid="uid://cyspwdctflykh" path="res://scenes/player.tscn" id="7_3e75i"]
 [ext_resource type="PackedScene" uid="uid://dbwsjv3dyybcs" path="res://scenes/level_end.tscn" id="8_j51od"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_yik8y")
 
 [node name="SplinteredHalls" type="Node2D" parent="."]
 
@@ -98,7 +100,7 @@ position = Vector2(1503, 1444)
 [node name="Goblin10" parent="." instance=ExtResource("4_2u1rx")]
 position = Vector2(2066, 1512)
 
-[node name="health_potion_collectible" parent="." instance=ExtResource("5_a2gi4")]
+[node name="HealthPotion" parent="." instance=ExtResource("5_a2gi4")]
 position = Vector2(2677, 909)
 
 [node name="Player" parent="." instance=ExtResource("7_3e75i")]
@@ -107,14 +109,14 @@ position = Vector2(236, 59)
 [node name="LevelEnd" parent="." instance=ExtResource("8_j51od")]
 position = Vector2(3156, 1229.5)
 
-[node name="health_potion_collectible2" parent="." instance=ExtResource("5_a2gi4")]
+[node name="HealthPotion2" parent="." instance=ExtResource("5_a2gi4")]
 position = Vector2(2496, -209.5)
 
-[node name="health_potion_collectible3" parent="." instance=ExtResource("5_a2gi4")]
+[node name="HealthPotion3" parent="." instance=ExtResource("5_a2gi4")]
 position = Vector2(2567, -887)
 
-[node name="health_potion_collectible4" parent="." instance=ExtResource("5_a2gi4")]
+[node name="HealthPotion4" parent="." instance=ExtResource("5_a2gi4")]
 position = Vector2(2537, -881.5)
 
-[node name="health_potion_collectible5" parent="." instance=ExtResource("5_a2gi4")]
+[node name="HealthPotion5" parent="." instance=ExtResource("5_a2gi4")]
 position = Vector2(2505.5, -887)

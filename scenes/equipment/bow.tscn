@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ot52xq0gc0oi"]
+[gd_scene load_steps=4 format=3 uid="uid://ot52xq0gc0oi"]
 
 [ext_resource type="Script" path="res://scripts/equipment/bow.gd" id="1_cqgr0"]
 [ext_resource type="Texture2D" uid="uid://cc0fb4m1kvg1s" path="res://art/equipment/crosshair.png" id="2_444j1"]
+[ext_resource type="AudioStream" uid="uid://c6ticikat0yf6" path="res://sounds/sound-effects/fireball.wav" id="3_rgscm"]
 
 [node name="Bow" type="Area2D"]
 collision_layer = 0
@@ -22,5 +23,8 @@ position = Vector2(10, 0)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true
+
+[node name="Boom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rgscm")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

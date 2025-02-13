@@ -91,7 +91,7 @@ offset_right = 694.5
 offset_bottom = 753.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_d1igl")
-theme_override_font_sizes/font_size = 90
+theme_override_font_sizes/font_size = 65
 text = "
 WASD to move
 
@@ -101,7 +101,11 @@ LMB for melee attack
 
 RMB for ranged attack
 
-Press 1 to take potion
+E for magic attack
+
+Press 1 to take health potion
+
+Press 2 to take mana potion
 
 "
 horizontal_alignment = 1

@@ -5,6 +5,8 @@ signal health_depleted
 
 const MAX_LEVEL: int = 4
 const ATTACK_STAMINA_COST = 25
+const HEALTH_POTION_VALUE = 50
+const MANA_POTION_VALUE = 25
 
 func _ready():
 	animation_tree.active = true
@@ -21,10 +23,14 @@ func _ready():
 	%ManaBar.size.x = PlayerVariables.max_mana * 3
 
 func _process(delta):
+	#HUD Update
 	%HealthBar.value = PlayerVariables.health
 	%ManaBar.value = PlayerVariables.mana
 	%StaminaBar.value = PlayerVariables.stamina
 	%XPBar.value = PlayerVariables.xp
+	%XPLabel.text = str(PlayerVariables.xp) + "/" + str(PlayerVariables.level_up_value)
+	%HealthPotionNum.text =str(PlayerVariables.health_potions)
+	%ManaPotionNum.text =str(PlayerVariables.mana_potions)
 	
 	if PlayerVariables.stamina < PlayerVariables.max_stamina:
 		PlayerVariables.stamina += PlayerVariables.stamina_regen_rate * delta
@@ -34,9 +40,6 @@ func _process(delta):
 	#Animations
 	animation_tree.set("parameters/conditions/idle", velocity == Vector2.ZERO)
 	animation_tree.set("parameters/conditions/walk", velocity != Vector2.ZERO)
-		
-	%XPLabel.text = "XP: " + str(PlayerVariables.xp)
-	%HealthPotionNum.text =str(PlayerVariables.health_potions)
 	
 	if OS.is_debug_build():
 		debug_input()
@@ -69,12 +72,10 @@ func input():
 func drink_potion(type):
 	match type:
 		"health_potion":
-			PlayerVariables.health += PlayerVariables.max_health * .3
-			if PlayerVariables.health > PlayerVariables.max_health:
-				PlayerVariables.health = PlayerVariables.max_health
+			be_healed(HEALTH_POTION_VALUE)
 			PlayerVariables.health_potions -= 1
 		"mana_potion":
-			modify_mana(PlayerVariables.max_mana * .3)
+			modify_mana(MANA_POTION_VALUE)
 			PlayerVariables.mana_potions -= 1
 
 func gain_potion(type):
@@ -102,6 +103,9 @@ func be_healed(value):
 	if PlayerVariables.health > PlayerVariables.max_health:
 		PlayerVariables.health = PlayerVariables.max_health
 
+func get_mana():
+	return PlayerVariables.mana
+
 func modify_mana(value):
 	PlayerVariables.mana += value
 	if PlayerVariables.mana < 0:
@@ -109,8 +113,6 @@ func modify_mana(value):
 	elif PlayerVariables.mana > PlayerVariables.max_mana:
 		PlayerVariables.mana = PlayerVariables.max_mana
 
-func get_mana():
-	return PlayerVariables.mana
 	
 func get_stamina():
 	return PlayerVariables.stamina
@@ -129,19 +131,19 @@ func gain_xp(value):
 	if PlayerVariables.xp >= PlayerVariables.level_up_value and PlayerVariables.level <= MAX_LEVEL:
 		level_up()
 
-func gain_money(value):
-	PlayerVariables.money += value
-
-func get_money():
-	return PlayerVariables.money
-
 func level_up():
 	if PlayerVariables.level >= MAX_LEVEL:
 		return
 	
-	gain_xp(-PlayerVariables.level_up_value)
 	PlayerVariables.level += 1
-	PlayerVariables.level_up_value += 500
+	#PlayerVariables.level_up_value += 1000
+	match PlayerVariables.level:
+		2:
+			PlayerVariables.level_up_value += 1000
+		3:
+			PlayerVariables.level_up_value += 2100
+		4:
+			PlayerVariables.level_up_value += 3000
 	%XPBar.max_value = PlayerVariables.level_up_value
 	
 	PlayerVariables.max_health += 100
@@ -168,9 +170,23 @@ func _on_sword_body_entered(body):
 	if body.has_method("take_damage"):
 			body.take_damage(10)
 			$Audio/Hit.play()
+			
+func level_intro_blurb(current_level):
+	match (current_level):
+		1: 
+			$LevelIntroBlurb.text = "\"This place looks like it’s held together with dust and bad intentions.\""
+		2:
+			$LevelIntroBlurb.text = "\"Looks like the forest ate a dungeon.\""
+		3:
+			$LevelIntroBlurb.text = "\"Ruined castles always have skeletons. Let’s see how many want me dead.\""
+		
+	$LevelIntroBlurb.visible = true
+	await get_tree().create_timer(10).timeout
+	$LevelIntroBlurb.visible = false
 
 func debug_input():
 	if Input.is_action_just_pressed("debug_level_up"):
+		PlayerVariables.xp = PlayerVariables.level_up_value
 		level_up()
 		
 func next_level():
