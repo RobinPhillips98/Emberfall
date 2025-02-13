@@ -7,6 +7,7 @@ const MAX_LEVEL: int = 4
 const ATTACK_STAMINA_COST = 25
 const HEALTH_POTION_VALUE = 50
 const MANA_POTION_VALUE = 25
+const SWORD_DAMAGE = 10
 
 func _ready():
 	animation_tree.active = true
@@ -168,7 +169,7 @@ func level_up():
 
 func _on_sword_body_entered(body):
 	if body.has_method("take_damage"):
-			body.take_damage(10)
+			body.take_damage(SWORD_DAMAGE)
 			$Audio/Hit.play()
 			
 func level_intro_blurb(current_level):
