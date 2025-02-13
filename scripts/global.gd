@@ -5,7 +5,7 @@ var level_count: int = 1
 func game_over():
 	get_node("/root/Game/GameOver").visible = true
 	get_tree().paused = true
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(5).timeout
 	get_tree().quit(0)
 
 func next_level():

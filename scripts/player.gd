@@ -158,6 +158,7 @@ func level_up():
 	%ManaBar.size.x = PlayerVariables.max_mana * 3
 	if %ManaBar.visible == false:
 		%ManaBar.visible = true
+		level_intro_blurb(4)
 	
 	PlayerVariables.max_stamina += 25
 	%StaminaBar.max_value = PlayerVariables.max_stamina
@@ -180,9 +181,11 @@ func level_intro_blurb(current_level):
 			$LevelIntroBlurb.text = "\"Looks like the forest ate a dungeon.\""
 		3:
 			$LevelIntroBlurb.text = "\"Ruined castles always have skeletons. Let’s see how many want me dead.\""
+		4:
+			$LevelIntroBlurb.text = "\"I am the Last Ember. My enemies shall burn.\" (Press E to cast fireball)"
 		
 	$LevelIntroBlurb.visible = true
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(5).timeout
 	$LevelIntroBlurb.visible = false
 
 func debug_input():
