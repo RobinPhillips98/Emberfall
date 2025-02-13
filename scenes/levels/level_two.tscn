@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://da2j3r44u8jtj" path="res://resources/tilesets/level_two_tileset.tres" id="1_lcfvl"]
 [ext_resource type="PackedScene" uid="uid://cyspwdctflykh" path="res://scenes/player.tscn" id="2_4dab8"]
-[ext_resource type="AudioStream" uid="uid://btspc1sh101es" path="res://sounds/music/splintered_halls_background.mp3" id="2_hkyww"]
 [ext_resource type="PackedScene" uid="uid://d1dw46vj4kwcc" path="res://scenes/enemies/skeleton.tscn" id="3_g2eig"]
+[ext_resource type="AudioStream" uid="uid://b5miwiciejo23" path="res://sounds/music/overgrown_ruins_background.mp3" id="2_vk6kb"]
 [ext_resource type="FontFile" uid="uid://ddpul4blfo325" path="res://art/fonts/AncientModernTales-a7Po.ttf" id="3_hcxem"]
 
 [node name="LevelTwo" type="Node2D"]
@@ -42,7 +42,8 @@ position = Vector2(1734, 81)
 position = Vector2(1241, 20)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_hkyww")
+stream = ExtResource("2_vk6kb")
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
